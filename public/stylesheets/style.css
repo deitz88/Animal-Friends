@@ -19,12 +19,42 @@
   margin-top: -5px;
 }
 
-.header{
-
+.nav-wrapper{
+  background-image: linear-gradient(to right, purple, rosybrown);
+  opacity: .7;
+  border-radius: 5px;
 }
-
 .nav-menu{
-  color: green;
-  display: inline-block;
-margin-right: 10px;
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+padding: 10px;
+margin-right: 20px;
+}
+.nav-menu a{
+  padding: 10px;
+  background-color: rosybrown;
+  border-radius: 5px;
+  text-decoration: none;
+ 
+}
+.nav-menu a:hover{
+  padding: 10px;
+  background-color:plum;
+  opacity: .5;
+ 
+}
+.nav-menu span{
+  position: absolute;
+  right: 30px;
+  padding: 10px;
+}
+a.button {
+background-color: rgba(188, 143, 143, 0.709);
+border-radius: 5px;
+padding: 5px;
+text-decoration: none;
+}
+a.button:hover {
+  opacity: .5;
 }

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const playdateSchema = new Schema({
     title: {type: String},
-    flight: [{type: Schema.Types.ObjectId, ref: 'Owner'}],
+    owner: [{type: Schema.Types.ObjectId, ref: 'Owner'}],
     body: {String}
     },
     {

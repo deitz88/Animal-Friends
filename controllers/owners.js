@@ -50,51 +50,32 @@ function home(req, res, next) {
   });
 }
 function pets(req, res, next) {
-  console.log(req.query)
-  console.log(req.user)
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
-  let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-  // Default to sorting by name
-  let sortKey = req.query.sort || 'name';
-  Owner.find(modelQuery)
-  .sort(sortKey).exec(function(err, owners) {
-    if (err) return next(err);
+  // console.log(req.query)
+  // console.log(req.user)
+  // // Make the query object to use with Student.find based up
+  // // the user has submitted the search form or now
+  // let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+  // // Default to sorting by name
+  // let sortKey = req.query.sort || 'name';
+  // Pet.find(modelQuery)
+  // .sort(sortKey).exec(function(err, pets) {
+  //   if (err) return next(err);
     // Passing search values, name & sortKey, for use in the EJS
     res.render('owners/pets', {
-      owners,
-      user: req.user,
-      name: req.query.name,
-      sortKey
+      // pets,
+      // user: req.user,
+      // name: req.query.name,
+      // sortKey
     });
-  });
+  // });
 }
 function profile(req, res, next) {
-  console.log(req.query)
-  console.log(req.user)
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
-  let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-  // Default to sorting by name
-  let sortKey = req.query.sort || 'name';
-  Owner.find(modelQuery)
-  .sort(sortKey).exec(function(err, owners) {
-    if (err) return next(err);
-    // Passing search values, name & sortKey, for use in the EJS
-    res.render('owners/profile', {
-      owners,
-      user: req.user,
-      name: req.query.name,
-      sortKey
-    });
-  });
+  
+    res.render('owners/profile', { title: 'Owner Profile', owner});
 }
 
-function show(req, res) {
-  Owner.findById(req.user.id).exec(function(err, owner) { 
-      
-          res.render('owners/show', { title: 'Owner Profile', owner});
-        })
+function show(req, res) {    
+          res.render('owners/show')
     };
 
 

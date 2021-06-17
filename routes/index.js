@@ -32,4 +32,10 @@ router.get('/logout', function(req, res){
   res.redirect('/owners');
 });
 
+// router.get('/pets', function(req, res){
+
+//   res.redirect('/pets')
+// })
+
+
 module.exports = router;

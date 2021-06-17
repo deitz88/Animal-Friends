@@ -43,24 +43,7 @@
                   <% } %>
                   <span class="student-name"><%= owner.name %></span>
               </div>
-              <ul class="collection">
-                <% owner.pets.forEach(function(pet) { %>
-                  <li class="collection-item blue-grey-text text-darken-2">
-                    
-
-              
-
-                    <!-- Add delete form - don't forget to install method-override -->
-                    <span class="title"><%- pet.text %></span>
-                    <% if (owner._id.equals(user && user._id)) { %>
-                      <form action="/pets/<%= fact._id %>?_method=DELETE" method="POST" class="secondary-content">
-                        <button type="submit" class="btn-small red-text">X</button>
-                      </form>
-                    <% } %>
-                  </li>
-                <% }) %>
-              </ul>
-
+            
               <% if (owner._id.equals(user && user._id)) { %>
                 <div class="card-action">
                   <form action="/pets" method="POST">

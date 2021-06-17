@@ -21,6 +21,8 @@ require('./config/passport');
 //routes
 const indexRoutes = require('./routes/index');
 const ownersRoutes = require('./routes/owners');
+const petsRoutes = require('./routes/pets');
+const playdateRoutes = require('./routes/playdates');
 
 
 // view engine setup
@@ -54,6 +56,8 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', ownersRoutes);
 app.use('/', indexRoutes);
+app.use('/pets', petsRoutes);
+app.use('/playdates', playdateRoutes);
 
 
 // invalid request, send 404 page

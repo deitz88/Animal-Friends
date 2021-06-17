@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+ <%- include('../partials/nav') %>
+ 
+ <h1>Pet Details</h1>
+<form action="/pets" method="POST">
+    <label>Name:
+        <input type="text" name="name">
+    </label>
+    <label>Age:
+        <input type="number" name="age">
+    </label><br><br>
+    <label>Gender:
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <br>
+    <label>Breed:
+        <select name="breed">
+            <option value="terrier">Terrier</option>
+            <option value="shepherd">Shepherd</option>
+            <option value="husky">Husky</option>
+            <option value="lab">Labrador</option>
+            <option value="bulldog">Bulldog</option>
+            <option value="hound">Hound</option>
+            <option value="malmute">Malmute</option>
+            <option value="retriever">Retriever</option>
+            <option value="terrier">Terier</option>
+            <option value="mutt">Mutt(significant mix)</option>
+            <option value="unkown">unkown</option>
+        </select><br><br>
+        <label>Size:
+            <select name="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select><br><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="submit" value="Add Pet" id='flight-btn'>
+    </form>
+    <br><br>
+    <br><br>
+    <br><br>
+    <%- include('../partials/footer') %>
