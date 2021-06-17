@@ -2,7 +2,12 @@ var router = require('express').Router();
 var ownersCtrl = require('../controllers/owners');
 
 // GET /owmner
-router.get('/owners', ownersCtrl.index);
+router.get('/', ownersCtrl.home);
+router.get('/show', isLoggedIn, ownersCtrl.show);
+router.get('/owners', ownersCtrl.owners)
+router.get('/pets', ownersCtrl.pets)
+router.get('/home', ownersCtrl.home);
+
 // router.post('/facts', isLoggedIn, studentsCtrl.addFact);
 
 

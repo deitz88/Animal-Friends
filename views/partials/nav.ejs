@@ -1,16 +1,24 @@
 <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="" class="brand-logo left">Nav</a>
+          <!-- <a href="" class="brand-logo left">Menu</a> -->
+          <div class="nav-menu">
+
+            <div>
+            <a href="/home">Home</a>
+            <a href="/owners">Search Owners</a>
+            <a href="/pets">Search Pets</a>
+        </div>
+        
+        </div>
         <ul class="right">
-          <li>
+          <li class='header'>
             <% if (user) { %>
-              <a href="/logout">Log Out</a>
-              <a href="/owners">Search Owners</a>
-            <% } else { %>
-              <a href="/auth/google"> Login with Google</a>
-            <% } %>       
-          </li>
+                <a href="/logout">Log Out</a>
+              <% } else { %>
+                <a href="/auth/google"> Login with Google</a>
+                <% } %>       
+            </li>
         </ul>
       </div>
     </nav>

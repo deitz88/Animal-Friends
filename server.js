@@ -58,7 +58,7 @@ app.use('/', indexRoutes);
 
 // invalid request, send 404 page
 app.use(function(req, res) {
-  res.status(404).send('Cant find that!');
+  res.status(404).send('404 Page Not Found');
 });
 
 module.exports = app;

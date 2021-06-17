@@ -18,3 +18,13 @@
 .collection-item form {
   margin-top: -5px;
 }
+
+.header{
+
+}
+
+.nav-menu{
+  color: green;
+  display: inline-block;
+margin-right: 10px;
+}
