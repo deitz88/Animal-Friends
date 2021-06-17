@@ -18,6 +18,9 @@ require('./config/database');
 // configure Passport
 require('./config/passport');
 
+//routes
+const indexRoutes = require('./routes/index');
+const ownersRoutes = require('./routes/owners');
 
 
 // view engine setup
@@ -49,6 +52,7 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
+app.use('/', ownersRoutes);
 app.use('/', indexRoutes);
 
 

@@ -1,0 +1,17 @@
+<div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo left">Nav</a>
+        <ul class="right">
+          <li>
+            <% if (user) { %>
+              <a href="/logout">Log Out</a>
+              <a href="/owners">Search Owners</a>
+            <% } else { %>
+              <a href="/auth/google"> Login with Google</a>
+            <% } %>       
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
