@@ -21,8 +21,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/owners/show', // where do you want the client to go after you login 
-    failureRedirect : 'owners/home' // where do you want the client to go if login fails
+    successRedirect : '/show', // where do you want the client to go after you login 
+    failureRedirect : '/show' // where do you want the client to go if login fails
   }
 ));
 
