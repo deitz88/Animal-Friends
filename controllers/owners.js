@@ -70,7 +70,7 @@ function pets(req, res, next) {
   // });
 }
 function profile(req, res, next) {
-  OWner.findById(req.params.id)
+  Owner.findById(req.params.id)
   .populate('owner')
   .exec(function(err, owner) { 
            res.render('owners/profile', { title: 'Owner Profile', owner});

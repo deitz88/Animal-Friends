@@ -2,4 +2,24 @@
  <%- include('../partials/nav') %>
 
  <h1>Playdate Edit</h1>
+
+ <form action="/playdates/<%=playdate.id%>?_method=PUT" method="POST">
+ <label for="title">Title:</label>
+ <br>
+ <input type="text" name="title" value="<%=playdate.title%>"><br>
+ <br>
+ <label for="location">Location:</label>
+ <br>
+ 
+ <input type="text" name="location" value="<%=playdate.location%>"><br>
+ <br>
+ <label for="body">Details of Playdate:</label><br>
+ <textarea type='text' rows='4' cols='50' name="body" value="<%=playdate.body%>"></textarea><br>
+ <br>
+ <button type="submit">Update Playdate</button>
+</form>
+ 
+
+
+
  <%- include('../partials/footer') %>

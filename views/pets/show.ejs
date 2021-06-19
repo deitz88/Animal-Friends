@@ -17,7 +17,9 @@
     <div id='petFixedRend'><%= pet.fixed %></div><br>
     <div id='petSizeEl'><strong>About:</strong> </div>
     <div id='petSizeRend'><%= pet.about %></div><br>
-   
+  </section>
 
+  <section>
+    <a href="/pets/<%=pet.id%>/edit">Edit</a>
   </section>
   <%- include('../partials/footer') %>

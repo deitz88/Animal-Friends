@@ -3,9 +3,11 @@ var router = require('express').Router();
 const petsCtrl = require('../controllers/pets')
 
 router.get('/new', isLoggedIn, petsCtrl.new);
-router.get('/', petsCtrl.index)
+router.get('/', petsCtrl.index);
 router.post('/', isLoggedIn, petsCtrl.create);
-router.get('/:id', petsCtrl.show)
+router.get('/:id', petsCtrl.show);
+router.get('/:id/edit', isLoggedIn, petsCtrl.edit);
+router.put('/:id', isLoggedIn, petsCtrl.update);
 
 
 function isLoggedIn(req, res, next) {

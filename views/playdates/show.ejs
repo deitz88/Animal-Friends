@@ -8,4 +8,11 @@
     <div id='detailEl'><strong>Details:</strong> </div>
     <div id='detailrend'><%= playdate.body %></div><br>
   </section>
+
+  <br><br><br>
+  <% if (owner._id.equals(user && user._id)) { %>
+  <section>
+    <a href="/playdates/<%=playdate.id%>/edit">Edit</a>
+  </section>
+  <% } %> 
 <%- include('../partials/footer') %>

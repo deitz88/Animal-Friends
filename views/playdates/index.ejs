@@ -7,7 +7,7 @@
       <tr>
         <th>Playdate Listing</th>
         <th>Location</th>
-        <a href="playdate/:id">View</a>
+        <!-- <a href="playdate/:id">View</a> -->
       </tr>
     </thead>
     <tbody>
@@ -17,11 +17,9 @@
           <td><%= t.title %></td>
           <td><%= t.location %></td>
           <td><a href="/playdates/<%= t.id %> ">View</a></td>
+          
           <td>
-            <form id="delete-ticket-form" method="POST"
-            action="/tickets/<%= t._id %>">
-                <input type="submit" value="X">
-            </form>
+          
         </td>
         </tr> 
           <% }); %> 
