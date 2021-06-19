@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
 const petSchema = new mongoose.Schema({
@@ -7,8 +8,9 @@ const petSchema = new mongoose.Schema({
   breed: String,
   gender: String,
   size: String,
-  fixed: Boolean,
-  owner: String
+  fixed: String,
+  owner: Schema.Types.ObjectId,
+  about: String,
 
 //   location: String
 }, {

@@ -1,4 +1,11 @@
 <%- include('../partials/header') %>
- <%- include('../partials/nav') %>
- <h1>Your Playdates</h1>
-  <%- include('../partials/footer') %>
+<%- include('../partials/nav') %>
+ <h1><%= playdate.title + ' '%>Details</h1>
+
+ <section id="show-page">
+    <div id='locationEl'><strong>Location:</strong> </div>
+    <div id='locationrend'><%= playdate.location %></div><br>
+    <div id='detailEl'><strong>Details:</strong> </div>
+    <div id='detailrend'><%= playdate.body %></div><br>
+  </section>
+<%- include('../partials/footer') %>

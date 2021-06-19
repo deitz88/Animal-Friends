@@ -4,10 +4,10 @@ var ownersCtrl = require('../controllers/owners');
 // GET /owmner
 router.get('/', ownersCtrl.home);
 router.get('/show', isLoggedIn, ownersCtrl.show);
-router.get('/owners', ownersCtrl.owners)
+router.get('/owners', ownersCtrl.owners);
 // router.get('/pets', ownersCtrl.pets)
 router.get('/home', ownersCtrl.home);
-router.get('/profile', ownersCtrl.profile)
+router.get('/profile', isLoggedIn, ownersCtrl.profile)
 
 // router.post('/facts', isLoggedIn, studentsCtrl.addFact);
 

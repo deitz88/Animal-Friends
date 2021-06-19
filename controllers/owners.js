@@ -70,13 +70,21 @@ function pets(req, res, next) {
   // });
 }
 function profile(req, res, next) {
-  
-    res.render('owners/profile', { title: 'Owner Profile', owner});
-}
+  OWner.findById(req.params.id)
+  .populate('owner')
+  .exec(function(err, owner) { 
+           res.render('owners/profile', { title: 'Owner Profile', owner});
+    })
+  }
 
-function show(req, res) {    
-          res.render('owners/show')
-    };
+  function show(req, res) {
+    Owner.findById(req.params.id)
+    .populate('owner')
+    .exec(function(err, owner) { 
+
+            res.render('owners/show', { title: 'Owner Profile', owner});
+          })
+      };
 
 
 

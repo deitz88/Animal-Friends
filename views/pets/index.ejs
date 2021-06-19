@@ -1,4 +1,27 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
  <h1>Pets Landing Page</h1>
+
+ <table>
+    <thead>
+      <tr>
+        <th>Pet Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+        <br> 
+        <% pet.forEach(function(t) { %>
+        <tr>
+          <td><%= t.name %></td>
+          <td><%= t.gender %></td>
+          <td><%= t.age %></td>
+          <td><a href="/pets/<%= t.id %> ">View</a></td>
+          <td>
+        </td>
+        </tr> 
+          <% }); %> 
+     </tbody>
+     </table>
   <%- include('../partials/footer') %>

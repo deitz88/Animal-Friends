@@ -2,46 +2,70 @@
  <%- include('../partials/nav') %>
  
  <h1>Pet Details</h1>
-<form action="/pets" method="POST">
+<form action="/pets" method="POST" class='pet-form'>
     <label>Name:
-        <input type="text" name="name">
+        <input type="text" name="name" required>
     </label>
+    <br>
+    <br>
+     <!-- <picture>
+         <source media="(min-width: )" srcset="">
+         <img src="" alt="">
+     </picture> -->
     <label>Age:
-        <input type="number" name="age">
+        <input type="number" name="age" required>
     </label><br><br>
     <label>Gender:
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
         <br>
-    <label>Breed:
-        <select name="breed">
-            <option value="terrier">Terrier</option>
-            <option value="shepherd">Shepherd</option>
-            <option value="husky">Husky</option>
-            <option value="lab">Labrador</option>
-            <option value="bulldog">Bulldog</option>
-            <option value="hound">Hound</option>
-            <option value="malmute">Malmute</option>
-            <option value="retriever">Retriever</option>
-            <option value="terrier">Terier</option>
-            <option value="mutt">Mutt(significant mix)</option>
-            <option value="unkown">unkown</option>
-        </select><br><br>
-        <label>Size:
-            <select name="size">
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-            </select><br><br>
-        <input type="radio" id="male" name="gender" value="male">
+        <input type="radio" id="male" name="gender" value="Male" required>
         <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
+        <input type="radio" id="female" name="gender" value="Female">
         <label for="female">Female</label><br>
-        <input type="submit" value="Add Pet" id='flight-btn'>
+        </label>
+        <br>
+
+    <label>Breed:
+        <select name="breed" required> 
+            <option value="Terrier">Terrier</option>
+            <option value="Shepherd">Shepherd</option>
+            <option value="Husky">Husky</option>
+            <option value="Labrador">Labrador</option>
+            <option value="Bulldog">Bulldog</option>
+            <option value="Hound">Hound</option>
+            <option value="Malmute">Malmute</option>
+            <option value="Retriever">Retriever</option>
+            <option value="Terier">Terier</option>
+            <option value="Mutt(significant mix)">Mutt(significant mix)</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br></label>
+
+        <label>Size:
+            <select name="size" required>
+                <option value="Small (1~15 lbs)">Small (1~15 lbs</option>
+                <option value="Medium (15~50lbs)">Medium (15~50lbs</option>
+                <option value="Large (50~90 lbs)">Large (50~90 lbs</option>
+                <option value="Massive (90+ lbs)">Massive (90+ lbs</option>
+            </select><br><br>
+        </label>
+
+        <label>Is your pet fixed?
+            <br>
+            <input type="radio" id="male" name="fixed" value="yes"required> 
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="female" name="fixed" value="no">
+            <label for="no">No</label><br>
+        </label>
+        <br>
+        <label>About:
+            <br>
+            <textarea name="about" id="petAbout" cols="70" rows="10"placeholder="Tell us a bit about your pet! Please include behavioral quirks, etc."></textarea>
+        </label>
+            <br>
+        <input type="submit" value="Add Pet" id='pet-btn'>
     </form>
     <br><br>
     <br><br>
     <br><br>
     <%- include('../partials/footer') %>
+
+    

@@ -1,4 +1,30 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
  <h1>Playdates Landing Page</h1>
+
+ <table>
+    <thead>
+      <tr>
+        <th>Playdate Listing</th>
+        <th>Location</th>
+        <a href="playdate/:id">View</a>
+      </tr>
+    </thead>
+    <tbody>
+        <br> 
+        <% playdate.forEach(function(t) { %>
+        <tr>
+          <td><%= t.title %></td>
+          <td><%= t.location %></td>
+          <td><a href="/playdates/<%= t.id %> ">View</a></td>
+          <td>
+            <form id="delete-ticket-form" method="POST"
+            action="/tickets/<%= t._id %>">
+                <input type="submit" value="X">
+            </form>
+        </td>
+        </tr> 
+          <% }); %> 
+     </tbody>
+     </table>
   <%- include('../partials/footer') %>

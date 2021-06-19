@@ -1,4 +1,23 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
- <h1>Pet Show Page</h1>
+ <h1>Pet Details</h1>
+
+ <section id="show-page">
+    <div id='petNameEl'><strong>Name:</strong> </div>
+    <div id='petNameRend'><%= pet.name %></div><br>
+    <div id='petAgeEl'><strong>Age:</strong> </div>
+    <div id='petAgeRend'><%= pet.age %></div><br>
+    <div id='petGenderEl'><strong>Gender:</strong> </div>
+    <div id='petGenderRend'><%= pet.gender %></div><br>
+    <div id='petBreedEl'><strong>Breed:</strong> </div>
+    <div id='petBreedRend'><%= pet.breed %></div><br>
+    <div id='petSizeEl'><strong>Size:</strong> </div>
+    <div id='petSizeRend'><%= pet.size %></div><br>
+    <div id='petFixedEl'><strong>Is <%= pet.name + ' ' %>Fixed?</strong> </div>
+    <div id='petFixedRend'><%= pet.fixed %></div><br>
+    <div id='petSizeEl'><strong>About:</strong> </div>
+    <div id='petSizeRend'><%= pet.about %></div><br>
+   
+
+  </section>
   <%- include('../partials/footer') %>
