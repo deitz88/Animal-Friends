@@ -17,9 +17,13 @@
     <div id='petFixedRend'><%= pet.fixed %></div><br>
     <div id='petSizeEl'><strong>About:</strong> </div>
     <div id='petSizeRend'><%= pet.about %></div><br>
+    <!-- <div id='petSizeEl'><strong>Playdates Attending:</strong> </div> -->
+    <!-- <div id='petSizeRend'><%= pet.about %></div><br> -->
   </section>
 
+  <% if (user._id.equals(user && pet.owner._id)) { %>
   <section>
     <a class='button' href="/pets/<%=pet.id%>/edit">Edit</a>
   </section>
+  <% } %>
   <%- include('../partials/footer') %>

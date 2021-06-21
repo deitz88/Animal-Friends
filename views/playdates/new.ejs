@@ -3,21 +3,28 @@
  <h1><span class="gradient-underline">Create PLaydate</span></h1>
 <form action="/playdates" method="POST" class='playdate-form'>
     <label>Title:
-        <input type="text" name="title" placeholder="Listing title">
+        <input type="text" name="title" placeholder="Listing title" required>
     </label>
     <br>
     <br>
     <label>Location:
-        <input type="text" name="location" placeholder="Location of playdate">
+        <input type="text" name="location" placeholder="Location of playdate"> required
     </label>
     <br>
     <br>
     <label>Playdate Details:
         <br>
-        <textarea type='text' rows='4' cols='50' name="body" placeholder="Enter details about playdate"></textarea>
+        <textarea type='text' rows='4' cols='50' name="body" placeholder="Enter details about playdate" required></textarea>
     </label>
     <br>
     <br>
+    <label>Your Pet For Playdate:
+        <select name="pet" required> 
+            <% pets.forEach(function(t) { %>
+            <option value="<%= t.id %>"><%= t.name %></option>
+            <% }); %> 
+        </select><br><br></label>
+    </label>
     <input type="submit" value="Add Playdate" id='playdate-btn'>
     </form>
   <%- include('../partials/footer') %>

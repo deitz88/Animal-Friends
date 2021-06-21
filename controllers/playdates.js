@@ -17,40 +17,31 @@ module.exports = {
   };
 
   function newPlaydate(req, res){
-    res.render('playdates/new');
-}
+    Pet.find({ owner: req.user._id}, function(err, pets){
+    res.render('playdates/new', {pets});
+    })
+  }
 
 function index(req, res) {
-  Owner.findById(req.params.id)
-  .populate('owner');
     Playdate.find({}, function (err, playdate) {
         res.render('playdates/index', { title: 'Playdates', playdate});
       })
     }
 
-    // function create(req, res){
-    //   const playdate = new Playdate(req.body);
-    //   //assign to logged in users ID
-    //   playdate.user = req.user._id;
-    //   playdate.save(function(err) {
-    //     if (err) return render('/playdates')// will want to make custom err template here
-    //     res.redirect('/playdates/:id');
-    //   });
-    // }
-
 function show(req, res) {
     Playdate.findById(req.params.id)
-          .populate('playdate')
+          .populate('owner').populate('pet').populate('petsOnPlaydate')
           .exec(function(err, playdate) { 
             res.render('playdates/show', { title: 'Playdate Detail', playdate});
 
           })
       };
 
+
 function edit(req, res) {
   Playdate.findById(req.params.id, function(err, playdate) {
     // Verify book is "owned" by logged in user
-    if (!Playdate.user.equals(req.user._id)) return res.redirect('/playdates');
+    if (!playdate.owner.equals(req.user._id)) return res.redirect('/playdates');
     res.render('playdates/edit', {playdate});
   });
 }
@@ -66,36 +57,24 @@ async function update(req, res){
   }
 }
 
-// function edit(req, res){
-//   Dog.findById(req.params.id, function(err, foundDog){
-//     if(err){
-//       res.send(err);
-//     } else {
-//       res.render('edit.ejs', {
-//         dog: foundDog
-//       })
-//     }
+// function create(req, res){
+//   Playdate.create(req.body, function (err, playdate) {
+//     Playdate.owner = req.user._id;
+//     Playdate.save(function(err) {
+//       res.redirect(`/playdates/`);
 //   });
-// }
+// })
+// };
 
 function create(req, res){
-  Playdate.create(req.body, function (err, playdate) {
-    Playdate.user = owner._id;
-    Playdate.save;
-  res.redirect('/playdates')
-  console.log(req.body)
-  console.log(Playdate.user)
-  });
-};
-
-// function create(req, res){
-//   playdate = new Playdate(req.body);
-//   playdate.user = req.user._id;
-//   playdate.save(function(err, playdate){
-//     if(err) console.error(err);
-//     res.redirect('/playdates');
-//   });
-// }
+  // Pet.find({ owner: req.user._id});
+    const playdate = new Playdate(req.body);
+    playdate.owner = req.user._id;
+      playdate.save(function(err) {
+        res.redirect(`/playdates`);
+    });
+  };
+  // };
 
 function deletePlaydate(req, res){
   Playdate.findByIdAndRemove(req.params.id, (err, deletePlaydate) => {

@@ -7,6 +7,33 @@
 
 
 
+
+  <table>
+    <thead>
+      <tr>
+        <th>Your Pets</th>
+        <!-- <a href="playdate/:id">View</a> -->
+      </tr>
+    </thead>
+    <tbody>
+        <br> 
+        <% pets.forEach(function(t) { %>
+        <tr>
+          <td><%= t.name %></td>
+          <td><a class='button'  href="/pets/<%= t.id %> ">View</a></td>
+          
+          <td>
+            <!-- <section>
+              <form action="/playdates/<%=t.id%>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+              </form>
+            </section> -->
+        </td>
+        </tr> 
+          <% }); %> 
+     </tbody>
+     </table>
+
 <table>
     <thead>
       <tr>
@@ -20,7 +47,7 @@
         <tr>
           <td><%= t.title %></td>
           <td><%= t.location %></td>
-          <td><a href="/playdates/<%= t.id %> ">View</a></td>
+          <td><a class ='button' href="/playdates/<%= t.id %> ">View</a></td>
           
           <td>
             <!-- <section>

@@ -20,46 +20,28 @@ function index(req, res) {
         res.render('pets/index', { title: 'Pets', pet});
       })
     }
-
-// function create(req, res){
-//   const pet = new Pet(req.body);
-//   //assign book to logged in users ID
-//   pet.user = req.user._id;
-//   pet.save(function(err) {
-//     if (err) return render('/pets')// will want to make custom err template here
-//     res.redirect('/pets/:id');
-//   });
-// }
-
 function create(req, res){
-  Pet.create(req.body, function (err, pet) {
-    Pet.user = req.user._id;
-    Pet.save;
-  res.redirect('/pets')
-  console.log(req.body)
+  const pet = new Pet(req.body);
+  pet.owner = req.user._id;
+    pet.save(function(err) {
+      res.redirect(`/pets`);
   });
 };
 
-
-// function create(req, res){
-//     Pet.create(req.body, function (err, pet) {
-//     res.redirect('/show')
-//     console.log(req.body)
-//     })
-// }
 function show(req, res) {
     Pet.findById(req.params.id)
     .populate('pet')
     .exec(function(err, pet) { 
-              console.log(pet)
             res.render('pets/show', { title: 'Pet Detail', pet});
           })
       };
 
+      // <% if (user._id.equals(user && pet.owner._id)) { %>
+
 function edit(req, res) {
   Pet.findById(req.params.id, function(err, pet) {
     // Verify  is "owned" by logged in user
-    if (!Pet.user.equals(req.user._id)) return res.redirect('/pets'); 
+    if (!pet.owner.equals(req.user._id)) return res.redirect('/pets'); 
     //add redirect to specific must be owner of thie material after
     res.render('pets/edit', {pet});
   });

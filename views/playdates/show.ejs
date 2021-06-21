@@ -8,12 +8,24 @@
     <div id='locationrend'><%= playdate.location %></div><br>
     <div id='detailEl'><strong>Details:</strong> </div>
     <div id='detailrend'><%= playdate.body %></div><br>
+    <div id='creatorEl'><strong>Playdate Creator:</strong> </div>
+    <div id='creatorRend'><%= playdate.owner.name %></div><br>
+    <div id='detailEl'><strong>Owners Pet:</strong> </div>
+    <a href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a>
+
   </section>
 
   <br><br><br>
  
   <section>
     <a class='button' href="/playdates/<%=playdate.id%>/edit">Edit</a>
+  </section>
+
+
+  <br><br><br>
+  <section id="show-page">
+    <div id='locationEl'><strong>Pets Attending:</strong> </div>
+    <div id='locationrend'><%= playdate.petsOnPlaydate %></div><br>
   </section>
 
 <%- include('../partials/footer') %>
