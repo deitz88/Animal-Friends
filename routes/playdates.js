@@ -9,7 +9,8 @@ router.get('/new', isLoggedIn, playdatesCtrl.new);
 router.post('/', isLoggedIn,  playdatesCtrl.create);
 router.get('/:id', playdatesCtrl.show);
 router.get('/:id/edit', playdatesCtrl.edit);
-router.put('/:id', playdatesCtrl.update)
+router.put('/:id', playdatesCtrl.update);
+router.delete('/:id', playdatesCtrl.delete)
 
 function isLoggedIn(req, res, next) {
 	// req.isAuthenticated() this is given to us by passport

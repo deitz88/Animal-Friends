@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
+
 const petSchema = new mongoose.Schema({
   name: String,
   age: Number,
@@ -9,7 +10,7 @@ const petSchema = new mongoose.Schema({
   gender: String,
   size: String,
   fixed: String,
-  owner: Schema.Types.ObjectId,
+  owner: {type: Schema.Types.ObjectId, ref: 'Owner'},
   about: String,
 
 //   location: String

@@ -20,26 +20,33 @@
 }
 
 .nav-wrapper{
-  background-image: linear-gradient(to right, purple, rosybrown);
+  background-image: linear-gradient(to right, #b56422ba, #d8bca4);
   opacity: .7;
   border-radius: 5px;
 }
 .nav-menu{
   display: flex;
   justify-content: space-around;
-  max-width: 400px;
-padding: 10px;
-margin-right: 20px;
+  max-width: 600px;
+  padding: 10px;
+  margin-right: 20px;
+  font-family: 'Merriweather', serif;
+  font-size:12px;
 }
 .nav-menu a{
-  padding: 10px;
-  background-color: rosybrown;
+  padding: 3px;
+  background-color: #b87a3fbf;
   border-radius: 5px;
   text-decoration: none;
- 
+  margin-left: 20px;
+  justify-self: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 4px 3px #56412b2b;
+  color: black;
+  border: 1.5px solid black;
 }
 .nav-menu a:hover{
-  padding: 10px;
   background-color:plum;
   opacity: .5;
  
@@ -47,16 +54,22 @@ margin-right: 20px;
 .nav-menu span{
   position: absolute;
   right: 30px;
-  padding: 10px;
+  padding: 2px;
 }
 a.button {
-background-color: rgba(188, 143, 143, 0.709);
+background-color: #b87a3f79;
 border-radius: 5px;
-padding: 5px;
+padding: 3.5px;
 text-decoration: none;
+font-size: 10px;
+color: black;
+border: 1.5px solid black;
+box-shadow: 4px 3px #56412b2b;
+font-family: 'Merriweather', serif;
 }
 a.button:hover {
   opacity: .5;
+  position: relative;
 }
 
 .playdate-form{
@@ -69,4 +82,26 @@ fill: rosybrown;
   }
 .pet-form{
 
+}
+
+
+h1{
+  font-family: 'Merriweather', serif;
+ }
+
+ .gradient-underline {
+  padding-bottom: 4px;
+  position: relative;
+  text-decoration: none;
+}
+
+.gradient-underline::after {
+  background: rosybrown;
+  background: linear-gradient(to right, transparent 0%, rosybrown 50%, transparent 100%);  
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
 }

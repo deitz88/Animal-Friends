@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
- <h1>Pet Details</h1>
+ <h1><span class="gradient-underline">Pet Details</span></h1>
 
  <section id="show-page">
     <div id='petNameEl'><strong>Name:</strong> </div>
@@ -20,6 +20,6 @@
   </section>
 
   <section>
-    <a href="/pets/<%=pet.id%>/edit">Edit</a>
+    <a class='button' href="/pets/<%=pet.id%>/edit">Edit</a>
   </section>
   <%- include('../partials/footer') %>

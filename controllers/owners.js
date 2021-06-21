@@ -1,4 +1,6 @@
 const Owner = require('../models/owner');
+const Pet = require('../models/pet');
+const Playdate = require('../models/playdate');
 
 module.exports = {
   owners,
@@ -77,17 +79,22 @@ function profile(req, res, next) {
     })
   }
 
-  function show(req, res) {
-    Owner.findById(req.params.id)
-    .populate('owner')
-    .exec(function(err, owner) { 
-
-            res.render('owners/show', { title: 'Owner Profile', owner});
-          })
-      };
-
+  function show(req, res){
+      Playdate.find({ owner: req.user._id}, function(err, playdates){
+        if(err) console.error(err);
+        res.render('owners/show', {playdates});
+      });
+    // });
+  };
 
 
-//     function show(req, res, next){
-//   res.render('/owners/show')
-// }
+// function show(req, res){
+//   // Owner.findById(req.user._id, function(err, owner){
+//   //   if(err) console.error(err);
+//   //   console.log(owner);
+//     Playdate.find({ owner: req.user._id}, function(err, playdates){
+//       if(err) console.error(err);
+//       res.render('owners/show', {playdates});
+//     });
+//   // });
+//

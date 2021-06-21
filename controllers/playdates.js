@@ -2,6 +2,8 @@
 // const Pet = require('../models/pet');
 const Playdate = require('../models/playdate');
 const Owner = require('../models/owner');
+const Pet = require('../models/pet');
+const owner = require('../models/owner');
 
 
 module.exports = {
@@ -10,7 +12,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: deletePlaydate
   };
 
   function newPlaydate(req, res){
@@ -26,7 +29,7 @@ function index(req, res) {
     }
 
     // function create(req, res){
-    //   const playdate = new Playdate.create(req.body);
+    //   const playdate = new Playdate(req.body);
     //   //assign to logged in users ID
     //   playdate.user = req.user._id;
     //   playdate.save(function(err) {
@@ -40,7 +43,7 @@ function show(req, res) {
           .populate('playdate')
           .exec(function(err, playdate) { 
             res.render('playdates/show', { title: 'Playdate Detail', playdate});
-            console.log(req.body)
+
           })
       };
 
@@ -77,9 +80,25 @@ async function update(req, res){
 
 function create(req, res){
   Playdate.create(req.body, function (err, playdate) {
-    Playdate.user = req.user._id;
+    Playdate.user = owner._id;
     Playdate.save;
   res.redirect('/playdates')
   console.log(req.body)
+  console.log(Playdate.user)
   });
 };
+
+// function create(req, res){
+//   playdate = new Playdate(req.body);
+//   playdate.user = req.user._id;
+//   playdate.save(function(err, playdate){
+//     if(err) console.error(err);
+//     res.redirect('/playdates');
+//   });
+// }
+
+function deletePlaydate(req, res){
+  Playdate.findByIdAndRemove(req.params.id, (err, deletePlaydate) => {
+    res.redirect('/playdates')
+  })
+}

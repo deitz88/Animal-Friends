@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
- <h1>Playdates Landing Page</h1>
+ <h1><span class="gradient-underline">Playdate Landing Page</span></h1>
 
  <table>
     <thead>
@@ -16,11 +16,16 @@
         <tr>
           <td><%= t.title %></td>
           <td><%= t.location %></td>
-          <td><a href="/playdates/<%= t.id %> ">View</a></td>
-          
+          <td><a class ='button' href="/playdates/<%= t.id %> ">View</a></td>
           <td>
-          
+            <!-- <section>
+              <form action="/playdates/<%=t.id%>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+              </form>
+            </section> -->
+            <br>
         </td>
+
         </tr> 
           <% }); %> 
      </tbody>

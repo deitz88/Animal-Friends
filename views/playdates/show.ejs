@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
- <h1><%= playdate.title + ' '%>Details</h1>
+ <h1><span class="gradient-underline"><%= playdate.title + ' '%>Details</span></h1>
+
 
  <section id="show-page">
     <div id='locationEl'><strong>Location:</strong> </div>
@@ -10,9 +11,9 @@
   </section>
 
   <br><br><br>
-  <% if (owner._id.equals(user && user._id)) { %>
+ 
   <section>
-    <a href="/playdates/<%=playdate.id%>/edit">Edit</a>
+    <a class='button' href="/playdates/<%=playdate.id%>/edit">Edit</a>
   </section>
-  <% } %> 
+
 <%- include('../partials/footer') %>
