@@ -14,7 +14,8 @@ module.exports = {
     edit,
     update,
     delete: deletePlaydate,
-    addToPlaydate
+    addToPlaydate,
+    remove
   };
 
   function newPlaydate(req, res){
@@ -94,4 +95,8 @@ function addToPlaydate(req, res) {
       });
     });
   // })
+}
+
+function remove(req, res){
+ console.log('hello!')
 }

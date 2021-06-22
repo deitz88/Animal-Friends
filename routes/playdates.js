@@ -12,7 +12,7 @@ router.get('/:id/edit', playdatesCtrl.edit);
 router.put('/:id', playdatesCtrl.update);
 router.delete('/:id', playdatesCtrl.delete);
 router.post('/:id/add', isLoggedIn,  playdatesCtrl.addToPlaydate);
-router.delete('/:id/remove', playdatesCtrl.remove);
+// router.delete('/:id/remove', playdatesCtrl.remove);
 
 
 function isLoggedIn(req, res, next) {
