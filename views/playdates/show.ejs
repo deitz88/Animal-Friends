@@ -6,7 +6,7 @@
  <section id="show-page">
     <div id='locationEl'><strong>Location:</strong> </div>
     <div id='locationrend'><%= playdate.location %></div><br>
-    <div id='detailEl'><strong>Details:</strong> </div>
+    <div id='detailEl'><strong>Details of Playdate:</strong> </div>
     <div id='detailrend'><%= playdate.body %></div><br>
     <div id='creatorEl'><strong>Playdate Creator:</strong> </div>
     <div id='creatorRend'><%= playdate.owner.name %></div><br>
@@ -17,6 +17,8 @@
 
   <br><br><br>
  
+
+  <!-- IF CREATOR OF POST BE ABLE TO AADD PET -->
   <section>
     <a class='button' href="/playdates/<%=playdate.id%>/edit">Edit</a>
   </section>
@@ -25,7 +27,34 @@
   <br><br><br>
   <section id="show-page">
     <div id='locationEl'><strong>Pets Attending:</strong> </div>
-    <div id='locationrend'><%= playdate.petsOnPlaydate %></div><br>
+    <div id='locationrend'>
+      <ul>
+      <% playdate.petsOnPlaydate.forEach(function (t) { %>
+        <li>
+       <a class='button' href="/pets/<%=t.id%>"><%= t.name %></a>
+       <br><br>
+       <section>
+       <form action="/playdates/<%=t.id%>/remove?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </section>
+      </form>
+      </li>
+      <br>
+       <% }) %>
+      </ul>
+    </div><br>
   </section>
 
+  <% if (pets.length) { %>
+  <form action="/playdates/<%= playdate._id %>/add" method="POST">
+    <label>Your Pet For Playdate:
+      <select name="pet"> 
+        <% pets.forEach(function(t) { %>
+          <option value="<%= t.id %>"><%= t.name %></option>
+          <% }); %> 
+      </select><br><br></label>
+  </label>
+  <button type="submit">Add To Playdate</button>
+  </form>
+  <% }; %> 
 <%- include('../partials/footer') %>

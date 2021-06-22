@@ -10,6 +10,7 @@ router.get('/:id/edit', isLoggedIn, petsCtrl.edit);
 router.put('/:id', isLoggedIn, petsCtrl.update);
 
 
+
 function isLoggedIn(req, res, next) {
     // req.isAuthenticated() this is given to us by passport
 	// it returns true or false

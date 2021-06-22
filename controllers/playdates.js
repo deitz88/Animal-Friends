@@ -3,7 +3,7 @@
 const Playdate = require('../models/playdate');
 const Owner = require('../models/owner');
 const Pet = require('../models/pet');
-const owner = require('../models/owner');
+// const owner = require('../models/owner');
 
 
 module.exports = {
@@ -13,7 +13,8 @@ module.exports = {
     show,
     edit,
     update,
-    delete: deletePlaydate
+    delete: deletePlaydate,
+    addToPlaydate
   };
 
   function newPlaydate(req, res){
@@ -29,13 +30,18 @@ function index(req, res) {
     }
 
 function show(req, res) {
-    Playdate.findById(req.params.id)
-          .populate('owner').populate('pet').populate('petsOnPlaydate')
-          .exec(function(err, playdate) { 
-            res.render('playdates/show', { title: 'Playdate Detail', playdate});
-
+  Playdate.findById(req.params.id)
+  .populate('owner').populate('pet').populate('petsOnPlaydate')
+  .exec(function(err, playdate) { 
+            Pet.find(
+              // let playDatePet = JSON.parse(body);
+              { owner: req.user._id}, 
+              function(err, pets){
+              res.render('playdates/show', { title: 'Playdate Detail', playdate, pets});
           })
+        })
       };
+
 
 
 function edit(req, res) {
@@ -57,14 +63,6 @@ async function update(req, res){
   }
 }
 
-// function create(req, res){
-//   Playdate.create(req.body, function (err, playdate) {
-//     Playdate.owner = req.user._id;
-//     Playdate.save(function(err) {
-//       res.redirect(`/playdates/`);
-//   });
-// })
-// };
 
 function create(req, res){
   // Pet.find({ owner: req.user._id});
@@ -80,4 +78,20 @@ function deletePlaydate(req, res){
   Playdate.findByIdAndRemove(req.params.id, (err, deletePlaydate) => {
     res.redirect('/playdates')
   })
+}
+
+function addToPlaydate(req, res) {
+  Playdate.findById(req.params.id, function(err, playdate) {
+    req.body.userId = req.user._id;
+    req.body.userName = req.user.name;
+    // Pet.findById(req.body.pet, function(err, pet) {
+      //     console.log(req.body, '<--what im tryin to log') 
+      playdate.petsOnPlaydate.push(req.body.pet);
+      console.log(req.body.pet, '<___________ MORE STUFF to loK At')
+      console.log('WE BE DOIN THINGS *!*@*@!(#$!#@)($%!#)$*%#@$%')
+      playdate.save(function(err) {
+        res.redirect(`/playdates/${playdate._id}`);
+      });
+    });
+  // })
 }

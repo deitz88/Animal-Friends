@@ -9,7 +9,7 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
   };
 
   function newPet(req, res){
@@ -46,13 +46,37 @@ function edit(req, res) {
     res.render('pets/edit', {pet});
   });
 }
+// async function update(req, res){
+
+//   try{
+//     await Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
+//     res.redirect('/pets/:id')
+    
+//   } catch(err){
+//     res.send(err)
+//   }
+// }
+
 async function update(req, res){
 
   try{
     await Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    res.redirect('/pets/:id')
+    res.redirect('/show')
     
   } catch(err){
     res.send(err)
   }
 }
+
+// function addToPlaydate(req, res) {
+//   Playdate.findById(req.params.id, function(err, playdate) {
+//     // Update req.body to contain user info
+//     req.body.userId = req.user._id;
+//     req.body.userName = req.user.name;
+//     // Add the comment
+//     playdate.petsOnPlaydate.push(req.body);
+//     playdate.save(function(err) {
+//       res.redirect(`/playdates/${playdate._id}`);
+//     });
+//   });
+// }

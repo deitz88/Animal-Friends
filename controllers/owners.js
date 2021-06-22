@@ -81,7 +81,10 @@ function profile(req, res, next) {
 
   function show(req, res){
       Playdate.find({ owner: req.user._id}, function(err, playdates){
-        Pet.find({ owner: req.user._id}, function(err, pets){
+        Pet.find(
+          { owner: req.user._id}, 
+          function(err, pets){
+          
           if(err) console.error(err);
           res.render('owners/show', {playdates, pets});
       });
