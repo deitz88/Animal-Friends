@@ -8,11 +8,11 @@ router.get('/', playdatesCtrl.index);
 router.get('/new', isLoggedIn, playdatesCtrl.new);
 router.post('/', isLoggedIn,  playdatesCtrl.create);
 router.get('/:id', isLoggedIn, playdatesCtrl.show);
-router.get('/:id/edit', playdatesCtrl.edit);
-router.put('/:id', playdatesCtrl.update);
-router.delete('/:id', playdatesCtrl.delete);
+router.get('/:id/edit', isLoggedIn, playdatesCtrl.edit);
+router.put('/:id', isLoggedIn, playdatesCtrl.update);
+router.delete('/:id', isLoggedIn, playdatesCtrl.delete);
 router.post('/:id/add', isLoggedIn,  playdatesCtrl.addToPlaydate);
-// router.delete('/:id/remove', playdatesCtrl.remove);
+router.delete('/:playdateId/:petId/remove', isLoggedIn, playdatesCtrl.remove);
 
 
 function isLoggedIn(req, res, next) {

@@ -8,7 +8,6 @@ const ownerSchema = new mongoose.Schema({
   email: String,
   avatar: String,
   googleId: String,
-  // pet: Schema.Types.ObjectId,
 //   location: String
 }, {
   timestamps: true

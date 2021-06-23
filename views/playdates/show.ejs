@@ -34,7 +34,7 @@
        <a class='button' href="/pets/<%=t.id%>"><%= t.name %></a>
        <br><br>
        <section>
-       <form action="/playdates/<%=t.id%>/remove?_method=DELETE" method="POST">
+       <form action="/playdates/<%=playdate.id%>/<%=t.id%>/remove?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
       </section>
       </form>

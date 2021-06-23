@@ -46,11 +46,14 @@ function show(req, res) {
 
 
 function edit(req, res) {
+  if(user){
   Playdate.findById(req.params.id, function(err, playdate) {
-    // Verify book is "owned" by logged in user
     if (!playdate.owner.equals(req.user._id)) return res.redirect('/playdates');
     res.render('playdates/edit', {playdate});
   });
+} else{
+  res.redirect()
+}
 }
 
 async function update(req, res){
@@ -63,7 +66,6 @@ async function update(req, res){
     res.send(err)
   }
 }
-
 
 function create(req, res){
   // Pet.find({ owner: req.user._id});
@@ -85,18 +87,19 @@ function addToPlaydate(req, res) {
   Playdate.findById(req.params.id, function(err, playdate) {
     req.body.userId = req.user._id;
     req.body.userName = req.user.name;
-    // Pet.findById(req.body.pet, function(err, pet) {
-      //     console.log(req.body, '<--what im tryin to log') 
       playdate.petsOnPlaydate.push(req.body.pet);
-      console.log(req.body.pet, '<___________ MORE STUFF to loK At')
-      console.log('WE BE DOIN THINGS *!*@*@!(#$!#@)($%!#)$*%#@$%')
+
       playdate.save(function(err) {
         res.redirect(`/playdates/${playdate._id}`);
       });
     });
-  // })
 }
 
-function remove(req, res){
- console.log('hello!')
+ function remove(req, res){
+Playdate.findById(req.params.playdateId, function(err, playdate) {
+    playdate.petsOnPlaydate.pull(req.params.petId);
+    playdate.save(function(err) {
+      res.redirect(`/playdates/${playdate._id}`);
+    });
+  });
 }
