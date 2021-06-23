@@ -11,7 +11,7 @@
     <div id='creatorEl'><strong>Playdate Creator:</strong> </div>
     <div id='creatorRend'><%= playdate.owner.name %></div><br>
     <div id='detailEl'><strong>Owners Pet:</strong> </div>
-    <a href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a>
+    <a class='button' href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a><img class='owner-dog' src="../images/bone.svg" alt="">
 
   </section>
 
@@ -20,9 +20,8 @@
 
   <!-- IF CREATOR OF POST BE ABLE TO AADD PET -->
   <section>
-    <a class='button' href="/playdates/<%=playdate.id%>/edit">Edit</a>
+    <a class='button-edit' href="/playdates/<%=playdate.id%>/edit">Edit</a>
   </section>
-
 
   <br><br><br>
   <section id="show-page">
@@ -30,31 +29,37 @@
     <div id='locationrend'>
       <ul>
       <% playdate.petsOnPlaydate.forEach(function (t) { %>
-        <li>
-       <a class='button' href="/pets/<%=t.id%>"><%= t.name %></a>
-       <br><br>
-       <section>
-       <form action="/playdates/<%=playdate.id%>/<%=t.id%>/remove?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </section>
-      </form>
+        <li class='add-pet-list-playdate'>
+          <a class='button' href="/pets/<%=t.id%>"><%= t.name %></a>
+        
+            <% if(t.owner == user.id) {%> 
+              <form class='delete-from-playdate' action="/playdates/<%=playdate.id%>/<%=t.id%>/remove?_method=DELETE" method="POST">
+                <button  type="submit">X</button>
+              </form>
       </li>
-      <br>
-       <% }) %>
+
+           <% } %> 
+          <% }) %>
       </ul>
     </div><br>
   </section>
 
-  <% if (pets.length) { %>
+  <% if (pets.length > 0) { %>
   <form action="/playdates/<%= playdate._id %>/add" method="POST">
     <label>Your Pet For Playdate:
       <select name="pet"> 
         <% pets.forEach(function(t) { %>
-          <option value="<%= t.id %>"><%= t.name %></option>
-          <% }); %> 
+          <% if(!playdate.petsOnPlaydate.id === t.id){  %>
+           <option value="<%= t.id %>"><%= t.name %></option>
+           <% }else{ %>
+            <h4>youve already aded your pet! </h4>
+            <% } %> 
+            <% }) %>
       </select><br><br></label>
   </label>
   <button type="submit">Add To Playdate</button>
   </form>
-  <% }; %> 
+  <% }else{ %> 
+    <h3>You dont have any pets to add!</h3>
+    <% } %>
 <%- include('../partials/footer') %>

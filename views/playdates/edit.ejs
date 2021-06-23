@@ -14,8 +14,15 @@
  <input type="text" name="location" value="<%=playdate.location%>"><br>
  <br>
  <label for="body">Details of Playdate:</label><br>
- <textarea type='text' rows='4' cols='50' name="body" value="<%=playdate.body%>"></textarea><br>
+ <textarea type='text' rows='4' cols='50' name="body"><%=playdate.body%></textarea><br>
  <br>
+ <label>Your Pet For Playdate:
+    <select name="pet" required> 
+        <% pets.forEach(function(t) { %>
+        <option value="<%= t.id %>"><%= t.name %></option>
+        <% }); %> 
+    </select><br><br></label>
+</label>
  <button type="submit">Update Playdate</button>
 </form>
  

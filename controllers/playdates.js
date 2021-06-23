@@ -35,7 +35,6 @@ function show(req, res) {
   .populate('owner').populate('pet').populate('petsOnPlaydate')
   .exec(function(err, playdate) { 
             Pet.find(
-              // let playDatePet = JSON.parse(body);
               { owner: req.user._id}, 
               function(err, pets){
               res.render('playdates/show', { title: 'Playdate Detail', playdate, pets});
@@ -46,14 +45,17 @@ function show(req, res) {
 
 
 function edit(req, res) {
-  if(user){
+  // if(user){
+    Pet.find({ owner: req.user._id}, function(err, pets){   
   Playdate.findById(req.params.id, function(err, playdate) {
-    if (!playdate.owner.equals(req.user._id)) return res.redirect('/playdates');
-    res.render('playdates/edit', {playdate});
+    if (!playdate.owner.equals(req.user._id)){
+          return res.redirect('/playdates');
+    }
+    res.render('playdates/edit', {playdate, pets});
   });
-} else{
-  res.redirect()
-}
+// } else{
+  // res.redirect()
+})
 }
 
 async function update(req, res){

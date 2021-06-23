@@ -1,99 +1,93 @@
-<%- include('../partials/header') %>
-<%- include('../partials/nav') %>
-<h5>
-  <span class='edit-profile'> 
-    <span class='icon'>
-      <i class="small material-icons">perm_identity</i>
+<%- include('../partials/header') %> <%- include('../partials/nav') %>
+<div class="show-profile">
+
+
+
+
+  <div class="profile-edit-cont">
+    <h5>
+      <span class="edit-profile">
+        <span class="icon">
+          <i class="small material-icons">perm_identity</i>
         </span>
-        <a href="/edit">Edit Profile
-      </a>
-    </span>
-</h5>
-<br>
-
-
-<div class='profile-cont'>
-    <h1>
-      <span class="gradient-underline"><%=owner.name + "'s"%>
+        <a href="/edit">Edit Profile </a>
       </span>
+    </h5>
+  </div>
+  <br />
+
+
+
+  <div class="profile-cont">
+    <h1>
+      <span class="gradient-underline"><%=owner.name + "'s"%> </span>
     </h1>
-  <h4>Profile</h4>
-</div>
+    <h4>Profile</h4>
+  </div>
 
+  <br /><br />
 
-    <br>
-    <br>
-
-
-
-
-<div id='profileCont'>
-
-
-
-
-  <table>
-    <thead>
-      <tr>
-        <th>Your Pets</th>
-        <!-- <a href="playdate/:id">View</a> -->
-      </tr>
-    </thead>
-    <tbody>
-        <br> 
+  <div class="profile-pet-cont">
+    <table>
+      <thead>
+        <tr>
+          <th>Your Pets</th>
+          <!-- <a href="playdate/:id">View</a> -->
+        </tr>
+      </thead>
+      <tbody>
+        <br />
         <% pets.forEach(function(t) { %>
         <tr>
           <td><%= t.name %></td>
-          <td><a class='button'  href="/pets/<%= t.id %> ">View</a></td>
-          
+          <td><a class="button" href="/pets/<%= t.id %> ">View</a></td>
           <td>
             <!-- <section>
               <form action="/playdates/<%=t.id%>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
               </form>
             </section> -->
-        </td>
-        </tr> 
-          <% }); %> 
-     </tbody>
-     </table>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
 
-<table>
-    <thead>
-      <tr>
-        <th>Your Playdates</th>
-        <!-- <a href="playdate/:id">View</a> -->
-      </tr>
-    </thead>
-    <tbody>
-        <br> 
+  <div class="profile-playdate-cont">
+    <table>
+      <thead>
+        <tr>
+          <th>Your Playdates</th>
+          <!-- <a href="playdate/:id">View</a> -->
+        </tr>
+      </thead>
+      <tbody>
+        <br />
         <% playdates.forEach(function(t) { %>
         <tr>
           <td><%= t.title %></td>
           <td><%= t.location %></td>
-          <td><a class ='button' href="/playdates/<%= t.id %> ">View</a></td>
-          
+          <td><a class="button" href="/playdates/<%= t.id %> ">View</a></td>
+
           <td>
             <!-- <section>
               <form action="/playdates/<%=t.id%>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
               </form>
             </section> -->
-        </td>
-        </tr> 
-          <% }); %> 
-     </tbody>
-     </table>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
 </div>
-<br><br>
+<br /><br />
 
-<a href="/pets/new" class='button'>Add Pet</a>
-<br>
-<br>
-<a href="/playdates/new" class='button'> Add Playdate</a>
+<a href="/pets/new" class="button">Add Pet</a>
+<br />
+<br />
+<a href="/playdates/new" class="button"> Add Playdate</a>
 
-
-
-
-
- <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>
