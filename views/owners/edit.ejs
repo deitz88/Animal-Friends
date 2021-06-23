@@ -3,20 +3,23 @@
 
  <h1><span class="gradient-underline">Playdate Edit</span></h1>
 
- <form action="/playdates/<%=playdate.id%>?_method=PUT" method="POST">
- <label for="title">Title:</label>
+ <form action="/<%=owner.id%>?_method=PUT" method="POST">
+ <label for="name">Display Name:</label>
  <br>
- <input type="text" name="title" value="<%=playdate.title%>"><br>
+ <input type="text" name="name" value="<%=owner.name%>"><br>
  <br>
- <label for="location">Location:</label>
+ <label for="email">Email:</label>
+ <br>
+ <input type="text" name="email" value="<%=owner.email%>"><br>
+ <br>
+ <label for="avatar">Picture:</label>
  <br>
  
- <input type="text" name="location" value="<%=playdate.location%>"><br>
+ <h1><%=owner.avatar%></h1>
+ <!-- <input type="text" name="avatar" value=""><br> -->
  <br>
- <label for="body">Details of Playdate:</label><br>
- <textarea type='text' rows='4' cols='50' name="body" value="<%=playdate.body%>"></textarea><br>
  <br>
- <button type="submit">Update Playdate</button>
+ <button type="submit">Update Profile</button>
 </form>
  
 

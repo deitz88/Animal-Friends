@@ -18,6 +18,40 @@
 .collection-item form {
   margin-top: -5px;
 }
+#home-hdr{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+}
+body{
+  background-image: linear-gradient(to left, #b5642264, #d8bca42b);
+  /* background-image: linear-gradient(to left, #b56422ba, #d8bca4); */
+}
+
+.max-img2{
+  background-image: url('../images/max.jpeg');
+  height: 500px;
+  width: 35%;
+  display: flex;
+  margin: auto;
+  position: inherit;
+  /* justify-content: center; */
+  padding-top: 40px;
+  padding-left: 30px ;
+  /* border-radius: 10px; */
+  image-rendering: optimizeQuality;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), */
+  color: white;
+  font-family: 'Merriweather', serif;
+  font-size:20px;
+  font-style: italic;
+
+}
+
 
 .nav-wrapper{
   background-image: linear-gradient(to right, #b56422ba, #d8bca4);
@@ -26,7 +60,7 @@
 }
 .nav-menu{
   display: flex;
-  justify-content: space-around;
+  justify-content: first baseline;
   max-width: 600px;
   padding: 10px;
   margin-right: 20px;
@@ -38,7 +72,7 @@
   background-color: #b87a3fbf;
   border-radius: 5px;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 10px;
   justify-self: center;
   padding-left: 10px;
   padding-right: 10px;
@@ -104,4 +138,38 @@ h1{
   left: 0;
   height: 2px;
   width: 100%;
+}
+
+.edit-profile{
+  position: absolute;
+  right: 30px;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.icon{
+  display: none;
+/* color: red; */
+/* top: 50px; */
+
+
+}
+
+.profile-cont{
+/* align: center; */
+margin: 0;
+width: fit-content;
+}
+
+h4 {
+  /* height: 25px; */
+  border-radius: 0px;
+  /* width: 100%; */
+  display: inline;
+  float: right;
+  margin-top: -10px;
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: small;
+  /* margin-right: */
 }

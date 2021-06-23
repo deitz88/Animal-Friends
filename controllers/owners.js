@@ -7,17 +7,14 @@ module.exports = {
   show, 
   home,
   pets,
-  profile
+  profile,
+  edit,
+  update
 };
 
 
 function owners(req, res, next) {
-  console.log(req.query)
-  console.log(req.user)
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-  // Default to sorting by name
   let sortKey = req.query.sort || 'name';
   Owner.find(modelQuery)
   .sort(sortKey).exec(function(err, owners) {
@@ -32,12 +29,7 @@ function owners(req, res, next) {
   });
 }
 function home(req, res, next) {
-  console.log(req.query)
-  console.log(req.user)
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-  // Default to sorting by name
   let sortKey = req.query.sort || 'name';
   Owner.find(modelQuery)
   .sort(sortKey).exec(function(err, owners) {
@@ -52,24 +44,8 @@ function home(req, res, next) {
   });
 }
 function pets(req, res, next) {
-  // console.log(req.query)
-  // console.log(req.user)
-  // // Make the query object to use with Student.find based up
-  // // the user has submitted the search form or now
-  // let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-  // // Default to sorting by name
-  // let sortKey = req.query.sort || 'name';
-  // Pet.find(modelQuery)
-  // .sort(sortKey).exec(function(err, pets) {
-  //   if (err) return next(err);
-    // Passing search values, name & sortKey, for use in the EJS
     res.render('owners/pets', {
-      // pets,
-      // user: req.user,
-      // name: req.query.name,
-      // sortKey
     });
-  // });
 }
 function profile(req, res, next) {
   Owner.findById(req.params.id)
@@ -80,16 +56,19 @@ function profile(req, res, next) {
   }
 
   function show(req, res){
+    Owner.findById(req.user._id)
+    .exec(function(err, owner) { 
       Playdate.find({ owner: req.user._id}, function(err, playdates){
         Pet.find(
           { owner: req.user._id}, 
           function(err, pets){
           
           if(err) console.error(err);
-          res.render('owners/show', {playdates, pets});
+          res.render('owners/show', {playdates, pets, owner});
       });
     });
-  };
+  });
+    }
 
 
 // function show(req, res){
@@ -102,3 +81,32 @@ function profile(req, res, next) {
 //     });
 //   // });
 //
+
+// function edit(req, res, next) {
+//   console.log(req.user._id, '<-----THIS THIBGASDFKELBGSDFGHSPFDG')
+//   Owner.findById(req.user._id)
+//   .populate('name', 'avatar', 'email')
+//   .exec(function(err, owner) { 
+//            res.render('owners/edit', { title: 'Edit Profile', owner});
+//     })
+//   }
+
+
+  function edit(req, res){
+    Owner.findById(req.user._id, function(err, owner){
+        if(err) console.error(err);
+        res.render('owners/edit', {owner});
+    });
+  // });
+};
+
+async function update(req, res){
+
+  try{
+    await Owner.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    res.redirect('/show')
+    
+  } catch(err){
+    res.send(err)
+  }
+}
