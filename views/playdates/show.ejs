@@ -43,16 +43,17 @@
       </ul>
     </div><br>
   </section>
-
   <% if (pets.length > 0) { %>
   <form action="/playdates/<%= playdate._id %>/add" method="POST">
     <label>Your Pet For Playdate:
       <select name="pet"> 
-        <% pets.forEach(function(t) { %>
-          <% if(!playdate.petsOnPlaydate.id === t.id){  %>
-           <option value="<%= t.id %>"><%= t.name %></option>
+        <% pets.forEach(function(p) { %>
+          <%  if(!playdate.petsOnPlaydate.some(pet => pet.id == p.id)) {%>
+           <option value='<%= p.id %>'><%= p.name %></option>
+           <% }else if(pets.length === 0){ %>
+            <h4>you've already added your pet! </h4>
            <% }else{ %>
-            <h4>youve already aded your pet! </h4>
+            <h4>you've already added your pet! </h4>
             <% } %> 
             <% }) %>
       </select><br><br></label>
