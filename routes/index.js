@@ -1,10 +1,9 @@
 var router = require('express').Router();
 const passport = require('passport');
 
-// The root route renders our only view
 router.get('/', function(req, res){
 
-  res.redirect('/owners')
+  res.redirect('/show')
 })
 router.get('/owners', function(req, res) {
 });
@@ -19,15 +18,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/home', // where do you want the client to go after you login 
-    failureRedirect : '/home' // where do you want the client to go if login fails
+    successRedirect : '/show', // where do you want the client to go after you login 
+    failureRedirect : '/login' // where do you want the client to go if login fails
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/owners');
+  res.redirect('/home');
 });
 
 // router.get('/pets', function(req, res){

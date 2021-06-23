@@ -18,11 +18,11 @@
   <br><br><br>
  
 
-  <!-- IF CREATOR OF POST BE ABLE TO AADD PET -->
+  <% if(playdate.owner.id == user.id) {%> 
   <section>
     <a class='button-edit' href="/playdates/<%=playdate.id%>/edit">Edit</a>
   </section>
-
+<% } %> 
   <br><br><br>
   <section id="show-page">
     <div id='locationEl'><strong>Pets Attending:</strong> </div>

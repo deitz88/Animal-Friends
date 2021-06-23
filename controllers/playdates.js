@@ -73,6 +73,7 @@ function create(req, res){
   // Pet.find({ owner: req.user._id});
     const playdate = new Playdate(req.body);
     playdate.owner = req.user._id;
+    playdate.petsOnPlaydate.push(req.body.pet);
       playdate.save(function(err) {
         res.redirect(`/playdates`);
     });
