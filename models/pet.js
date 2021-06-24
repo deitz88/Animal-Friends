@@ -12,6 +12,11 @@ const petSchema = new mongoose.Schema({
   fixed: String,
   owner: {type: Schema.Types.ObjectId, ref: 'Owner'},
   about: String,
+  petImage: 
+  {
+    data: Buffer,
+    contentType: String
+}
 
 //   location: String
 }, {

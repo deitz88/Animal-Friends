@@ -1,27 +1,26 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
- <h1><span class="gradient-underline">Pets Landing Page</span></h1>
+ <h1><span class="gradient-underline">Search Pets</span></h1>
 
  <table>
     <thead>
       <tr>
-        <th>Pet Name</th>
-        <th>Gender</th>
-        <th>Age</th>
+        <th class='pet-table-hdr'>Pet Name</th>
+        <th class='pet-table-hdr'>Gender</th>
+        <th class='pet-table-hdr'>Age</th>
       </tr>
     </thead>
     <tbody class='pet-list'>
         <br> 
         <% pet.forEach(function(t) { %>
         <tr>
-          <td><%= t.name %></td>
-          <td><%= t.gender %></td>
-          <td><%= t.age %></td>
-          <td><a class='button' href="/pets/<%= t.id %> ">View</a></td>
-          <td>
-        </td>
+          <td class='pet-table-info'><%= t.name %></td>
+          <td class='pet-table-info'><%= t.gender %></td>
+          <td class='pet-table-info'><%= t.age %></td>
+          <td class='pet-table-info'><a class='button' href="/pets/<%= t.id %> ">View</a></td>
         </tr> 
           <% }); %> 
-     </tbody>
-     </table>
-  <%- include('../partials/footer') %>
+        </tbody>
+      </table>
+   <%- include('../partials/footer') %>
+ 

@@ -11,6 +11,7 @@ router.get('/profile', isLoggedIn, ownersCtrl.profile)
 router.get('/edit', isLoggedIn, ownersCtrl.edit);
 router.put('/:id', isLoggedIn, ownersCtrl.update);
 
+
 // router.post('/facts', isLoggedIn, studentsCtrl.addFact);
 
 

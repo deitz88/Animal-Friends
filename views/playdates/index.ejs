@@ -2,11 +2,12 @@
  <%- include('../partials/nav') %>
  <h1><span class="gradient-underline">Playdate Landing Page</span></h1>
 
+ <div class='playdate-index-table-header'>
  <table>
     <thead>
       <tr>
-        <th>Playdate Listing</th>
-        <th>Location</th>
+        <th class='table-hdr'>Playdate Listing</th>
+        <th class='table-hdr'>Location</th>
         <!-- <a href="playdate/:id">View</a> -->
       </tr>
     </thead>
@@ -14,15 +15,20 @@
         <br> 
         <% playdate.forEach(function(t) { %>
         <tr>
-          <td><%= t.title %></td>
-          <td><%= t.location %></td>
-          <td><a class ='button' href="/playdates/<%= t.id %> ">View</a></td>
+          <td class='table-info'><%= t.title %></td>
+          <td class='table-info'><%= t.location %></td>
+          <td class='table-info'><a class ='button' href="/playdates/<%= t.id %> ">View</a></td>
           <td>
+            <br>
+            <% if(t.owner == user.id) {%> 
             <section>
+              <td class='info'>
               <form action="/playdates/<%=t.id%>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
+                <button class='remove-from-playdate-list' type="submit">Remove</button>
               </form>
             </section>
+            <% } %> 
+          </td>
             <br>
         </td>
 
@@ -30,4 +36,5 @@
           <% }); %> 
      </tbody>
      </table>
+    </div>
   <%- include('../partials/footer') %>

@@ -6,6 +6,20 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
+var express = require('express')
+const multer  = require('multer')
+// const upload = multer({ dest: 'uploads/' })
+// SET STORAGE
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+ 
+var upload = multer({ storage: storage })
 
 // load the env vars
 require('dotenv').config();
@@ -35,6 +49,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+// app.use(morgan('dev'));
 // mount the session middleware
 app.use(session({
   secret: 'SEI Rocks!',

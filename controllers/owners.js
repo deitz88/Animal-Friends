@@ -9,7 +9,8 @@ module.exports = {
   pets,
   profile,
   edit,
-  update
+  update, 
+  test
 };
 
 
@@ -109,4 +110,9 @@ async function update(req, res){
   } catch(err){
     res.send(err)
   }
+}
+
+function test(req, res, next) {
+  res.render('owners/test', {
+  });
 }

@@ -9,7 +9,9 @@ module.exports = {
     create,
     show,
     edit,
+    delete: deletePet,
     update,
+    // img
   };
 
   function newPet(req, res){
@@ -20,13 +22,13 @@ function index(req, res) {
         res.render('pets/index', { title: 'Pets', pet});
       })
     }
-function create(req, res){
-  const pet = new Pet(req.body);
-  pet.owner = req.user._id;
-    pet.save(function(err) {
-      res.redirect(`/pets`);
-  });
-};
+// function create(req, res){
+//   const pet = new Pet(req.body);
+//   pet.owner = req.user._id;
+//     pet.save(function(err) {
+//       res.redirect(`/pets`);
+//   });
+// };
 
 function show(req, res) {
     Pet.findById(req.params.id)
@@ -36,8 +38,6 @@ function show(req, res) {
           })
       };
 
-      // <% if (user._id.equals(user && pet.owner._id)) { %>
-
 function edit(req, res) {
   Pet.findById(req.params.id, function(err, pet) {
     // Verify  is "owned" by logged in user
@@ -46,16 +46,13 @@ function edit(req, res) {
     res.render('pets/edit', {pet});
   });
 }
-// async function update(req, res){
 
-//   try{
-//     await Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
-//     res.redirect('/pets/:id')
-    
-//   } catch(err){
-//     res.send(err)
-//   }
-// }
+function deletePet(req, res){
+  Pet.findByIdAndRemove(req.params.id, (err, deletePet) => {
+    res.redirect('/show')
+  })
+}
+
 
 async function update(req, res){
 
@@ -67,16 +64,36 @@ async function update(req, res){
     res.send(err)
   }
 }
+  // function img(req, res){
+  //   if (!req.file) {
+  //     console.log("No file received");
+  //     return res.send({
+  //       success: false
+  //     });
+  
+  //   } else {
+  //     console.log('file received');
+  //     return res.send({
+  //       success: true
+  //     })
+  //   }
+  // };
 
-// function addToPlaydate(req, res) {
-//   Playdate.findById(req.params.id, function(err, playdate) {
-//     // Update req.body to contain user info
-//     req.body.userId = req.user._id;
-//     req.body.userName = req.user.name;
-//     // Add the comment
-//     playdate.petsOnPlaydate.push(req.body);
-//     playdate.save(function(err) {
-//       res.redirect(`/playdates/${playdate._id}`);
-//     });
-//   });
-// }
+
+  function create(req, res){
+    console.log(req.body)
+    if (!req.file) {
+      console.log("No file received");
+      return res.send({
+        success: false
+      });
+  
+    } else {
+    const pet = new Pet(req.body);
+    pet.owner = req.user._id;
+    pet.petImage = 
+      pet.save(function(err) {
+        res.redirect(`/pets`);
+    });
+  };
+  }

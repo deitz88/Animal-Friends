@@ -34,7 +34,7 @@
         
             <% if(t.owner == user.id) {%> 
               <form class='delete-from-playdate' action="/playdates/<%=playdate.id%>/<%=t.id%>/remove?_method=DELETE" method="POST">
-                <button  type="submit">X</button>
+                <button class='submit' type="submit">X</button>
               </form>
       </li>
 

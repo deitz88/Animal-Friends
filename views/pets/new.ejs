@@ -2,7 +2,7 @@
  <%- include('../partials/nav') %>
  
  <h1><span class="gradient-underline">Pet Details</span></h1>
-<form action="/pets" method="POST" class='pet-form'>
+<form action="/pets" method="POST" class='pet-form' enctype="multipart/form-data">
     <label>Name:
         <input type="text" name="name" required>
     </label>
@@ -61,6 +61,9 @@
             <textarea name="about" id="petAbout" cols="70" rows="10"placeholder="Tell us a bit about your pet! Please include behavioral quirks, etc."></textarea>
         </label>
             <br>
+                <input type="file" name="petImage" />
+                <br><br>
+     
         <input type="submit" value="Add Pet" id='pet-btn'>
     </form>
     <br><br>
