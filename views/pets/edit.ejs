@@ -62,7 +62,17 @@
             <br>
             <textarea name="about" id="petAbout" cols="70" rows="10"><%=pet.about%></textarea>
         </label>
-            <br>
+            <br><br>
+          <%  console.log(pet.petImage) %>
+            <% if(pet.petImg == undefined){ %> 
+                    <div> 
+                       <label>Upload your pets picture!</label> <input type="file"   name="petImage" />
+                    </div>
+               <% } else { %>
+                <div id='petImageEl'><strong>Image:</strong> </div>
+                <div id='petImageRendEdit'><img class='petImageRendImgEdit' src="/<%= pet.petImage %>" alt="" ></div><br>
+              <%  } %>
+                  <br>
     <button type="submit">Update Pet</button>
    </form>
  

@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<h1 class='petNameImg'>
+    <span class="gradient-underline"><%=pet.name%> </span>
+  </h1>
+<div class='imgCont'><a href='/pets/<%= pet.id %>' class= "close-btn">x</a>
+    <img class='imgShow' src="/<%= pet.petImage %>" alt="">
+</div><br>
+
+<%- include('../partials/footer') %>

@@ -11,7 +11,8 @@ module.exports = {
     edit,
     delete: deletePet,
     update,
-    // img
+    image,
+    closeImg
   };
 
   function newPet(req, res){
@@ -22,13 +23,6 @@ function index(req, res) {
         res.render('pets/index', { title: 'Pets', pet});
       })
     }
-// function create(req, res){
-//   const pet = new Pet(req.body);
-//   pet.owner = req.user._id;
-//     pet.save(function(err) {
-//       res.redirect(`/pets`);
-//   });
-// };
 
 function show(req, res) {
     Pet.findById(req.params.id)
@@ -64,36 +58,33 @@ async function update(req, res){
     res.send(err)
   }
 }
-  // function img(req, res){
-  //   if (!req.file) {
-  //     console.log("No file received");
-  //     return res.send({
-  //       success: false
-  //     });
-  
-  //   } else {
-  //     console.log('file received');
-  //     return res.send({
-  //       success: true
-  //     })
-  //   }
-  // };
-
 
   function create(req, res){
     console.log(req.body)
     if (!req.file) {
-      console.log("No file received");
-      return res.send({
-        success: false
+      const pet = new Pet(req.body);
+      pet.owner = req.user._id;   
+      pet.save(function(err) {
+        res.redirect(`/pets`);
+    
       });
   
     } else {
     const pet = new Pet(req.body);
-    pet.owner = req.user._id;
-    pet.petImage = 
-      pet.save(function(err) {
-        res.redirect(`/pets`);
-    });
-  };
+    pet.owner = req.user._id;   
+    pet.petImage = req.file.path
+    pet.save(function(err) {
+            res.redirect(`/pets`);
+  });
   }
+}
+
+function image(req, res){
+  Pet.findById(req.params.id, function(err, pet) {
+    res.render('pets/imgShow', {pet});
+  })
+}
+
+function closeImg(req, res){
+  res.redirect(res.redirect('/show'))
+}

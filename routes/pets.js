@@ -1,8 +1,25 @@
 var router = require('express').Router();
-// var ownersCtrl = require('../controllers/owner');
 const multer  = require('multer')
 const petsCtrl = require('../controllers/pets')
-const upload = multer({ dest: 'uploads/' })
+var path = require('path');
+
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+	  cb(null, 'uploads');
+	},
+	filename: (req, file, cb) => {
+	  console.log(file);
+	  cb(null, Date.now() + path.extname(file.originalname));
+	}
+  });
+  const fileFilter = (req, file, cb) => {
+	if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
+	  cb(null, true);
+	} else {
+	  cb(null, false);
+	}
+  }
+const upload = multer({ storage: storage, fileFilter: fileFilter, dest: 'uploads/'  });
 
 router.get('/new', isLoggedIn, petsCtrl.new);
 router.get('/', petsCtrl.index);
@@ -12,13 +29,12 @@ router.delete('/:id', isLoggedIn, petsCtrl.delete);
 router.get('/:id/edit', isLoggedIn, petsCtrl.edit);
 router.put('/:id', isLoggedIn, petsCtrl.update);
 router.post('/', isLoggedIn, upload.single('petImage'), petsCtrl.create)
+router.get('/:id/images', petsCtrl.image)
 
 
 
 function isLoggedIn(req, res, next) {
-    // req.isAuthenticated() this is given to us by passport
-	// it returns true or false
-	if ( req.isAuthenticated() ) return next(); // next() go to the next function in middleware
+	if ( req.isAuthenticated() ) return next(); 
 	res.redirect('/auth/google');
 }
 module.exports = router;

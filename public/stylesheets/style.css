@@ -337,11 +337,134 @@ align-items: right;
   .playdate-index-table-header{
 
   }
+  .petImageRendImgEdit{
+    height: 200px
+  }
+  .pet-edit-cont{
+display: flex;
+justify-content: center;
+  }
+
+  #pet-edit-btn-div{
+position: absolute;
+margin: auto;
+margin-top: 32px;
+margin-left: 30px
+  }
+  .pet-show-cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+     grid-template-rows: 1fr; 
+     grid-template-areas: 
+     "locationT ageT genderT"
+     "location age gender"
+     "breedT sizeT fixedT"
+     "breed size fixedRend";
+     /* "image . about"; */
+     margin: auto;
+     align-items: left;
+  }
+  #petLocationEl{
+    grid-area: locationT;
+    margin: auto;
+    justify-content: left;
+  
+  }
+  #petLocationRend{
+    grid-area: location;
+    margin: auto;
+  }
+  #petAgeEl{
+    grid-area: ageT;
+    margin: auto;
+  }
+  #petAgeRend{
+    grid-area: age;
+    margin: auto;
+  }
+  #petGenderEl{
+    grid-area: genderT;
+    margin: auto;
+  }
+  #petGenderRend{
+    grid-area: gender;
+    margin: auto;
+  }
+  #petBreedEl{
+    grid-area: breedT;
+    margin: auto;
+    margin-top: 20px;
+  }
+  #petBreedRend{
+    grid-area: breed;
+    margin: auto;
+  }
+  #petSizeEl{
+    grid-area: sizeT;
+    margin: auto;
+    margin-top: 20px;
+  }
+  #petSizeRend{
+    grid-area: size;
+    margin: auto;
+  }
+  #petFixedEl{
+    grid-area: fixedT;
+    margin: auto;
+    margin-top: 20px;
+  }
+  #petFixedRend{
+    grid-area: fixedRend;
+    margin: auto;
+  }
+  
+  .pet-show-about-cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+     grid-template-rows: 1fr; 
+     grid-template-areas: 
+     "imageT aboutT"
+     "image about";
+  }
+#petAboutEl{
+  grid-area: aboutT;
+  margin: auto;
+  margin-top: 20px;
+}
+#petAboutRend{
+  grid-area: about;
+  margin: auto;
+}
+#petImageEl{
+  grid-area: imageT;
+  margin: auto;
+  margin-top: 20px;
+}
+#petImageRend{
+  grid-area: image;
+  margin: auto;
+}
+
 
 
 
 
   /* TABLE STYLES HERE */
+  /* .pet-show-table{
+table-layout: fixed;
+
+  }
+
+
+  .pet-show-hdr-show{
+    padding: 5px 20px;
+    text-align: left;
+    }
+  
+  .pet-show-info-show{
+    padding: 5px 20px;
+    text-align: left;
+    }  */
 
 .pet-table-hdr-show{
   padding: 5px 20px;
@@ -393,6 +516,10 @@ align-items: right;
   transition: max-height 1s ease-in-out;
   }
 
+  .petNameImg{
+display: flex;
+justify-content: center;
+  }
 
 
   .home-div{
@@ -409,7 +536,49 @@ margin: auto;
   .home-div:hover{
 opacity: 1;
   }
+  .close-btn{
+    border: solid black 1px;
+    color: black;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    left: 450px;
+    margin: auto;
+    margin-top: 35px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px;
+    /* padding-left: 10px; */
+    padding-top: 3px;
+    text-decoration: none;
+    opacity: .6;
+    position: relative;
+    width: 10px;
+    /* height: fit-content; */
 
+  }
+  .close-btn:hover{
+    opacity: 1;
+    /* background-color: red; */
+  }
+  .imgCont{
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    background-color: rosybrown;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 20px;
+    justify-content: center;
+}
+.imgShow{
+  border-radius: 40px;
+  padding: 20px;
+  /* margin-top: 20px; */
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+}
 
 
 .fadein {
@@ -422,6 +591,9 @@ opacity: 1;
 
 body.loaded.fadein {
     opacity: 1;
+}
+.petImageRendImg{
+  height: 400px;
 }
 
 

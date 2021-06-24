@@ -11,8 +11,9 @@
     <div id='creatorEl'><strong>Playdate Creator:</strong> </div>
     <div id='creatorRend'><%= playdate.owner.name %></div><br>
     <div id='detailEl'><strong>Owners Pet:</strong> </div>
+    <% if(playdate.pet._id) %> 
     <a class='button' href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a><img class='owner-dog' src="../images/bone.svg" alt="">
-
+    <% } %> 
   </section>
 
   <br><br><br>

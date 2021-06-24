@@ -8,18 +8,25 @@ var passport = require('passport');
 var methodOverride = require('method-override');
 var express = require('express')
 const multer  = require('multer')
-// const upload = multer({ dest: 'uploads/' })
 // SET STORAGE
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads')
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
   },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, Date.now() + path.extname(file.originalname));
   }
-})
- 
-var upload = multer({ storage: storage })
+});
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+}
+
+const upload = multer({ storage: storage, fileFilter: fileFilter, dest: 'uploads/'  });
 
 // load the env vars
 require('dotenv').config();
@@ -45,6 +52,8 @@ app.set('view engine', 'ejs');
 
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

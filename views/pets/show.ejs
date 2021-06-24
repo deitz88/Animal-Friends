@@ -1,10 +1,25 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
- <h1><span class="gradient-underline">Pet Details</span></h1>
 
- <section id="show-page">
-    <div id='petNameEl'><strong>Name:</strong> </div>
-    <div id='petNameRend'><%= pet.name %></div><br>
+ <div class='pet-edit-cont'>
+    <h1>
+      <span class="gradient-underline"><%= pet.name %>
+      </span>
+   
+    </h1>
+    <div class='pet-edit-btn-div'>
+      <% if (user._id.equals(user && pet.owner._id)) { %>
+          <a id='pet-edit-btn-div' class='button' href="/pets/<%=pet.id%>/edit">Edit</a>
+        <% } %>
+      </div>
+ </div>
+
+
+ <a href='/pets/<%=pet.id%>/images'>etst</a>
+<div class='pet-show-cont'>
+ <!-- <section id="show-page"> -->
+    <div id='petLocationEl'><strong>Location:</strong> </div>
+    <div id='petLocationRend'><%= pet.location %></div><br>
     <div id='petAgeEl'><strong>Age:</strong> </div>
     <div id='petAgeRend'><%= pet.age %></div><br>
     <div id='petGenderEl'><strong>Gender:</strong> </div>
@@ -15,17 +30,12 @@
     <div id='petSizeRend'><%= pet.size %></div><br>
     <div id='petFixedEl'><strong>Is <%= pet.name + ' ' %>Fixed?</strong> </div>
     <div id='petFixedRend'><%= pet.fixed %></div><br>
-    <div id='petSizeEl'><strong>About:</strong> </div>
-    <div id='petSizeRend'><%= pet.about %></div><br>
-    <div id='petSizeEl'><strong>Image:</strong> </div>
-    <div id='petSizeRend'><%= pet.petImage %></div><br>
-    <!-- <div id='petSizeEl'><strong>Playdates Attending:</strong> </div> -->
-    <!-- <div id='petSizeRend'><%= pet.about %></div><br> -->
-  </section>
+  </div>
+  <div class='pet-show-about-cont'>
+    <div id='petAboutEl'><strong>About:</strong> </div>
+    <div id='petAboutRend'><%= pet.about %></div><br>
+    <div id='petImageEl'><strong>Image:</strong> </div>
+    <div id='petImageRend'><img class='petImageRendImg' src="../<%= pet.petImage %>" alt="" ></div><br>
+</div>
 
-  <% if (user._id.equals(user && pet.owner._id)) { %>
-  <section>
-    <a class='button' href="/pets/<%=pet.id%>/edit">Edit</a>
-  </section>
-  <% } %>
   <%- include('../partials/footer') %>
