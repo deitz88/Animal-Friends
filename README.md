@@ -57,6 +57,7 @@ Add Pet:
 
 <h1>Getting Started:</h1>
 <a href='https://doggo-dating.herokuapp.com/'>Check it out @here</a>
+<br>
 <a href='https://trello.com/b/642vpUMh/project-2'>Trello Board</a>
 
 <h1>Next Steps/Icebox</h1>
