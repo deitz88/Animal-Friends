@@ -61,17 +61,9 @@ Add Pet:
 Icebox (wants to be added) features:
     <ul>
       <li>Location API, and to be able to search playdates and pets by proximity</li>
-      <li>A 'roulete' feature that will randomly display a pet card</li>
       <li>Be able to see playdates upcoming that pet is attending</li>
       <li>Auto delete playdate 1 week after date is done</li>
       <li>Be able to leave comments on picture view</li>
-    
-
-
-
-
-☐ Screenshot(s): A screenshot of your app's landing page and any other screenshots of interest.
-
 
 
 
