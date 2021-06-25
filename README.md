@@ -14,6 +14,19 @@ Create a login and start exploring this app:
 
 
 <h1>Screenshots</h1>
+here are some of the example shots from the app:
+
+Home:
+![Screenshot](/images/Home.png)
+
+Profile:
+![Screenshot](/images/EditProfile.png)
+
+Playdate Index:
+![Screenshot](/images/playdateIndex.png)
+
+Add Pet:
+![Screenshot](/images/addPet.png)
 
 <h1>Technologies Used:</h1>
 <ul>
