@@ -1,34 +1,53 @@
-# passport-boilerplate
+<h1>Welcome to Animal Friends!</h1>
+Just as much as us homans need to socialize and interace, so do our Furry Friends.<br />
+So i decided to make this app, as a playdate finder for our furry companions.
+My dog, Max, has changed my life, and so i found it fitting to make something on his behalf<br />
+Create a login and start exploring this app:
+<ul>
+  <li>create a pet profile</li>
+  <li><Search other pets/li>
+  <li>Look for playdates</li>
+  <li>View other dogs profiles</li>
+  <li>create a playdate</li>
+  <li>add your pet to others playdate</li>
+ 
 
 
-This is your passport boilerplate.
+<h1>Screenshots</h1>
 
-## Setup 
+<h1>Technologies Used:</h1>
+<ul>
+ <li>MongoDB </li>
+<li>Mongoose</li>
+<li>Multer Image Middleware</li>
+<li>Google Oauth</li>
+<li>Passport</li>
+<li>CSS</li>
+<li>HTML</li>
+<li>JavaScript</li>
+<li>Express</li>
+  </ul>
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+
+<h1>Getting Started:</h1>
+<a href='https://doggo-dating.herokuapp.com/'>Check it out @here</a>
+
+<h1>Next Steps/Icebox</h1>
+Icebox (wants to be added) features:
+    <ul>
+      <li>Location API, and to be able to search playdates and pets by proximity</li>
+      <li>A 'roulete' feature that will randomly display a pet card</li>
+      <li>Be able to see playdates upcoming that pet is attending</li>
+      <li>Auto delete playdate 1 week after date is done</li>
+      <li>Be able to leave comments on picture view</li>
+    
 
 
-#### Setup your git repo
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin master` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin master`
 
-#### Setup your login
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+☐ Screenshot(s): A screenshot of your app's landing page and any other screenshots of interest.
 
-#### Make a commit 
 
-```git commit -m "setup up oauth and User Model"```
+
+
+
