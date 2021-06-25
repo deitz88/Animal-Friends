@@ -5,7 +5,7 @@ My dog, Max, has changed my life, and so i found it fitting to make something on
 Create a login and start exploring this app:
 <ul>
   <li>create a pet profile</li>
-  <li><Search other pets/li>
+  <li>Search other pets</li>
   <li>Look for playdates</li>
   <li>View other dogs profiles</li>
   <li>create a playdate</li>
