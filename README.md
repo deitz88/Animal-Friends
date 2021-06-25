@@ -1,33 +1,53 @@
 <h1>Welcome to Animal Friends!</h1>
+Just as much as us homans need to socialize and interace, so do our Furry Friends.<br />
+So i decided to make this app, as a playdate finder for our furry companions.
+My dog, Max, has changed my life, and so i found it fitting to make something on his behalf<br />
+Create a login and start exploring this app:
+<ul>
+  <li>create a pet profile</li>
+  <li><Search other pets/li>
+  <li>Look for playdates</li>
+  <li>View other dogs profiles</li>
+  <li>create a playdate</li>
+  <li>add your pet to others playdate</li>
+ 
 
 
 <h1>Screenshots</h1>
 
 <h1>Technologies Used:</h1>
-mongoDB 
-mongoose
-Multer image
-Google Oauth
-passport
-CSS
-HTML
-JavaScript
-Express
+<ul>
+ <li>MongoDB </li>
+<li>Mongoose</li>
+<li>Multer Image Middleware</li>
+<li>Google Oauth</li>
+<li>Passport</li>
+<li>CSS</li>
+<li>HTML</li>
+<li>JavaScript</li>
+<li>Express</li>
+  </ul>
 
 
 <h1>Getting Started:</h1>
 <a href='https://doggo-dating.herokuapp.com/'>Check it out @here</a>
 
 <h1>Next Steps/Icebox</h1>
+Icebox (wants to be added) features:
+    <ul>
+      <li>Location API, and to be able to search playdates and pets by proximity</li>
+      <li>A 'roulete' feature that will randomly display a pet card</li>
+      <li>Be able to see playdates upcoming that pet is attending</li>
+      <li>Auto delete playdate 1 week after date is done</li>
+      <li>Be able to leave comments on picture view</li>
+    
 
 
-☐ App Title: Contains a description of what the app does and optional background info.
+
 
 ☐ Screenshot(s): A screenshot of your app's landing page and any other screenshots of interest.
 
-☐ Technologies Used: List of the technologies used.
 
-☐ Getting Started: Include a link to the deployed app and your Trello board with the project's planning.
 
-☐ Next Steps: Planned future enhancements (icebox items).
+
 
