@@ -4,6 +4,7 @@ So i decided to make this app, as a playdate finder for our furry companions.
 My dog, Max, has changed my life, and so i found it fitting to make something on his behalf<br />
 <br>
 <br>
+A MENstack CRUD application<br>
 You can create a login and start exploring this app:
 <ul>
   <li>create a pet profile</li>

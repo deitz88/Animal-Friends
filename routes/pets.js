@@ -19,6 +19,7 @@ const storage = multer.diskStorage({
 	  cb(null, false);
 	}
   }
+  
 const upload = multer({ storage: storage, fileFilter: fileFilter, dest: 'uploads/'  });
 
 router.get('/new', isLoggedIn, petsCtrl.new);
