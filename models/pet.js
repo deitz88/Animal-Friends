@@ -13,8 +13,7 @@ const petSchema = new mongoose.Schema({
   owner: {type: Schema.Types.ObjectId, ref: 'Owner'},
   about: String,
   petImage: String,
-
-//   location: String
+  location: String
 }, {
   timestamps: true
 });

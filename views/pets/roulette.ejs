@@ -1,7 +1,38 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
+<title>Roulette</title>
+<br>
+<div class=roulatteContMain>
+<div class='roulette-cont'>
+    <h2 id='rouletteName' class="gradient-underline"><%= result.name %></h2>
+            <% if(result.petImage == 'noImage') {%> 
+                <img class='rouletteImg' src="../images/petIcon.png" alt="">
+                <% } else{ %> 
+            <img class='rouletteImg' src="../<%= result.petImage %>"  alt="">
+            <% } %> 
+    <div class='buttonCont'>
+        <a class='nextBtn' href="">Prev</a>
+        <a class='nextBtn' href='/pets/<%=result.id%>'>Info</a>
+        <a class='nextBtn' href="/pets/roulette">Next</a>
+        
+    </div>
+</div>
+    <div class='infoCont'>
+        <h2 class='roulettetitle'>Age:</h2>
+        <h2 class='rouletteInfo'><%= result.age %></h2>
+        <h2 class='roulettetitle'>Breed:</h2>
+        <h2 class='rouletteInfo'><%= result.breed %></h2>
+        <h2 class='roulettetitle'>Gender:</h2>
+        <h2 class='rouletteInfo'><%= result.gender %></h2>
+        <h2 class='roulettetitle'>Size:</h2>
+        <h2 class='rouletteInfo'><%= result.size %></h2>
+        <h2 class='roulettetitle'>Fixed?</h2>
+        <h2 class='rouletteInfo'><%= result.fixed %></h2>
+        <h2 class='roulettetitle'>About:</h2>
+        <h2 class='rouletteInfo'><%= result.about %></h2>
+    </div>
+</div>
 
-<h1><span class="gradient-underline">Roulette</span></h1>
 
 
 <%- include('../partials/footer') %>

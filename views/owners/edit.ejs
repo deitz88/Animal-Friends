@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
-
- <h1><span class="gradient-underline">Playdate Edit</span></h1>
+<title>Profile Edit</title>
+<br>
+ <h1><span class="gradient-underline">Edit Profile</span></h1>
 
  <form action="/<%=owner.id%>?_method=PUT" method="POST">
  <label for="name">Display Name:</label>
@@ -12,11 +13,8 @@
  <br>
  <input type="text" name="email" value="<%=owner.email%>"><br>
  <br>
- <label for="avatar">Picture:</label>
+
  <br>
- 
- <h1><%=owner.avatar%></h1>
- <!-- <input type="text" name="avatar" value=""><br> -->
  <br>
  <br>
  <button type="submit">Update Profile</button>

@@ -122,6 +122,26 @@ function imagePlaydate(req, res){
   })
 }
 
+// function roulette (req, res){
+//   Pet.findOneRandom(function(err, result) {
+    
+//       console.log(result); // 1 element
+//       res.render('pets/roulette');
+//     })
+// }
+
 function roulette (req, res){
-    res.render('pets/roulette');
+    Pet.count().exec(function (err, pet) {
+
+      // Get a random entry
+      var random = Math.floor(Math.random() * pet)
+
+      // Again query all users but only fetch one offset by our random #
+      Pet.findOne().skip(random).exec(
+        function (err, result) {
+          // Tada! random user
+          console.log(result) 
+          res.render('pets/roulette', {result})
+        })
+})
 }

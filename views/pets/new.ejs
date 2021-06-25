@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
  <%- include('../partials/nav') %>
- 
+ <title>Add Pet</title>
  <h1><span class="gradient-underline">Pet Details</span></h1>
 <form action="/pets" method="POST" class='pet-form' enctype="multipart/form-data">
     <label>Name:
@@ -14,7 +14,8 @@
      </picture> -->
     <label>Age:
         <input type="number" name="age" required>
-    </label><br><br>
+        <h5>*Enter nearer whole number</h5>
+    </label><br>
     <label>Gender:
         <br>
         <input type="radio" id="male" name="gender" value="Male" required>
@@ -55,6 +56,11 @@
             <input type="radio" id="female" name="fixed" value="no">
             <label for="no">No</label><br>
         </label>
+        <br>
+        <label>Location:
+            <input type="text" name="location" required>
+        </label><br>
+        <h5>*use format (City, State) or Zipcode</h5>
         <br>
         <label>About:
             <br>

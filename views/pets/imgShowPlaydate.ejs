@@ -1,10 +1,11 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
+<title>Image</title>
 
 <h1 class='petNameImg'>
     <span class="gradient-underline"><%=pet.name%> </span>
   </h1>
-<div class='imgCont'><a onclick=<% this.window.history.back() %> class= "close-btn">x</a>
+<div class='imgCont'><a href="/playdates/" class= "close-btn">x</a>
     <img class='imgShow' src="/<%= pet.petImage %>" alt="">
 </div><br>
 

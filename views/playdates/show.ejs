@@ -1,6 +1,13 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
- <h1><span class="gradient-underline"><%= playdate.title + ' '%>Details</span></h1>
+<title>Playdate Detail</title>
+<%
+ let d = playdate.date.getDate();
+ let m = playdate.date.getMonth();
+ let y = playdate.date.getFullYear();
+ %>
+<title>Playdate Details</title>
+ <h1><span class="gradient-underline"><%= playdate.title + ' '%></span></h1>
 
 
  <section id="show-page">
@@ -8,8 +15,8 @@
     <div id='locationrend'><%= playdate.location %></div><br>
     <div id='detailEl'><strong>Details of Playdate:</strong> </div>
     <div id='detailrend'><%= playdate.body %></div><br>
-    <div id='creatorEl'><strong>Playdate Creator:</strong> </div>
-    <div id='creatorRend'><%= playdate.owner.name %></div><br>
+    <div id='creatorEl'><strong>On:</strong> </div>
+    <div id='creatorRend'><%= m+ "/"+d+ "/"+y %></div><br>
     <div id='detailEl'><strong>Owners Pet:</strong> </div>
     <% if(!playdate.pet) {%> 
       <p>No Pet Added</p>

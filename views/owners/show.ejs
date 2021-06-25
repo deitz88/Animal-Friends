@@ -1,4 +1,5 @@
 <%- include('../partials/header') %> <%- include('../partials/nav') %>
+<title>Profile</title>
 <div class="show-profile">
 
 
@@ -10,7 +11,9 @@
         <span class="icon">
           <i class="small material-icons">perm_identity</i>
         </span>
-        <a href="/edit">Edit Profile </a>
+        <br>
+        <br>
+        <a class='button' id="edit" href="/edit">Edit Profile </a>
       </span>
     </h5>
   </div>
@@ -44,7 +47,7 @@
           <td class='pet-table-info-show'>
             <section>
               <form action="/pets/<%=t.id%>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
+                <button class="pet-btn" type="submit">Delete</button>
               </form>
             </section>
           </td>
@@ -58,10 +61,10 @@
     <table>
       <thead>
         <tr>
-          <th class='pet-table-hdr'>Your Playdates</th>
+          <th class='pet-table-hdr-profile'>Your Playdates</th>
         </tr>
       </thead>
-      <tbody> <br />
+      <tbody> 
         <% playdates.forEach(function(t) { %>
         <tr>
           <td class='pet-table-info-show'><%= t.title %></td>
@@ -72,15 +75,15 @@
       </tbody>
     </table>
   </div>
-</div>
-<br /><br />
-<div class='add-pet-cont'>
-<a href="/pets/new" class="button">Add Pet</a>
-</div>
-<br />
-<br />
-<div class='add-playdate-cont'>
-<a href="/playdates/new" class="button"> Add Playdate</a>
+  <br /><br />
+  <div class='add-pet-cont'>
+    <a href="/pets/new" class="button">Add Pet</a>
+  </div>
+  <br />
+  <br />
+  <div class='add-playdate-cont'>
+    <a href="/playdates/new" class="button"> Add Playdate</a>
+  </div>
 </div>
 
 

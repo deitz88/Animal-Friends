@@ -9,7 +9,19 @@
 #search-row form {
   padding-top: 20px;
 }
-
+#edit{
+  /* color: rgba(175, 0, 0, 0.801); */
+  /* text-decoration: underline; */
+  font-style: italic;
+  padding: 4px 15px;
+  background-color: rgba(188, 143, 143, 0.411);
+}
+.pet-btn{
+margin-left: -70px;
+margin-top: 5px;
+border-radius: 3px;
+color: rgba(180, 0, 0, 0.932);
+}
 .student-name {
   position: relative;
   top: -5px;
@@ -108,6 +120,7 @@ grid-area: pets;
 .profile-playdate-cont{
   display: grid;
 grid-area: playdates;
+margin-top: -10px
 }
 .remove-from-playdate-list{
   display: grid;
@@ -121,11 +134,13 @@ grid-area: playdates;
   width: fit-content;
   display: grid;
   grid-area: addPet;
+  margin-top: 20px;
 }
 .add-playdate-cont{
   width: fit-content;
   display: grid;
   grid-area: addPlaydate;
+  margin-top: 20px;
 }
 
 
@@ -183,7 +198,7 @@ grid-area: playdates;
   font-family: 'Merriweather', serif;
   }
 .button {
-background-color: #b87a3f79;
+background-color: #c293687c;
 border-radius: 5px;
 padding: 3.5px;
 text-decoration: none;
@@ -335,6 +350,97 @@ align-items: right;
   border-radius: 5px;
 
   }
+
+
+  /* Roulette */
+
+  .roulettetitle{
+    font-size: 15px;
+    padding-left: 10px;
+    text-decoration: underline;
+    font-style: italic;
+  }
+  .rouletteInfo{
+    margin-top: -20px;
+    font-size: 15px;
+    padding-left: 25px;
+    margin: auto;
+    /* position: absolute; */
+    display: flex;
+    align-content: end;
+    max-width: 75px;
+  }
+  .roulatteContMain{
+    display: grid;
+    grid-template-columns: 21fr 1fr;
+    grid-template-areas: 
+    "pic info";
+
+  }
+  .infoCont{
+  display: table;
+  grid-area: info;
+  /* background-color: #a4a3a3a2; */
+  padding-right: 10px;
+  margin: auto;
+  height:fit-content;
+  border-radius: 20px;
+  position: absolute;
+  }
+  .roulette-cont{
+    display: grid;
+    /* justify-self: center; */
+    margin: auto;
+    /* width: fit-content; */
+    grid-area: pic;
+    /* height: fit-content; */
+    background-color: #a4a3a3a2;
+    border-radius: 20px;
+  }
+
+  .rouletteImg{
+    /* width: 600px; */
+    height: 80vh;
+    margin: 10px;
+    border-radius: 20px;
+  }
+  #rouletteName{
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: large;
+  }
+  .buttonCont{
+  display: flex;
+  justify-content: center;
+
+  }
+  .nextBtn{
+margin: auto;
+color: black;
+text-decoration: none;
+background-color: white;
+/* opacity: .5; */
+padding: 5px 20px;
+display: inline-flex;
+position: relative;
+align-content: center;
+margin-bottom: 20px;
+border-radius: 10px;
+width: fit-content;;
+opacity: .5;
+  }
+
+  .nextBtn:hover{
+    opacity: 1;
+  }
+.infoBtn{
+
+}
 h5{
   font-size: 10px;
   color: red;
@@ -466,6 +572,10 @@ margin-left: 30px
   padding: 5px 20px;
   text-align: left;
   }
+  .pet-table-hdr-profile{
+    padding: 5px 20px;
+    text-align: left;
+  }
 
 .pet-table-info-show{
   padding: 5px 20px;
@@ -474,6 +584,7 @@ margin-left: 30px
 .pet-table-hdr{
   padding: 10px 25px;
   text-align: left;
+  
   }
 
 .pet-table-info{
