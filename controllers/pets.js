@@ -2,7 +2,7 @@ const Owner = require('../models/owner');
 const Pet = require('../models/pet')
 const Playdate = require('../models/playdate');
 var path = require('path');
-const fs = require('fs')
+// const fs = require('fs')
 
 
 
@@ -16,7 +16,8 @@ module.exports = {
     update,
     image,
     imageSrc,
-  
+    imagePlaydate,
+    roulette
   };
 
   function newPet(req, res){
@@ -114,4 +115,13 @@ function imageSrc(req, res){
   Pet.findById(req.params.id, function(err, pet) {
     res.render('pets/imgShowSrc', {pet});
   })
+}
+function imagePlaydate(req, res){
+  Pet.findById(req.params.id, function(err, pet) {
+    res.render('pets/imgShowPlaydate', {pet});
+  })
+}
+
+function roulette (req, res){
+    res.render('pets/roulette');
 }

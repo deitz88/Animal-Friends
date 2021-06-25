@@ -14,7 +14,14 @@
     <% if(!playdate.pet) {%> 
       <p>No Pet Added</p>
       <% } else { %> 
-    <a class='button' href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a><img class='owner-dog' src="../images/bone.svg" alt="">
+    <a class='button' href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a>
+    <img class='owner-dog' src="../images/bone.svg" alt="">
+    <br><br>
+    <td class='pet-table-info'>  
+      <a href='/pets/<%=playdate.pet.id%>/imagesPlaydate'>
+          <img class='pet-img-index' src="/<%=playdate.pet.petImage %>" alt="">
+      </a>
+    </td>
         <% } %> 
   </section>
 

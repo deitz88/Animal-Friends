@@ -10,6 +10,7 @@ const playdateSchema = new Schema({
     owner: {type: Schema.Types.ObjectId, ref: 'Owner'},
     pet: {type: Schema.Types.ObjectId, ref: 'Pet'},
     petsOnPlaydate: [{type: Schema.Types.ObjectId, ref: 'Pet'}],
+    date: Date,
     },
     {
     timestamps: true

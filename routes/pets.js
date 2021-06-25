@@ -23,6 +23,7 @@ const upload = multer({ storage: storage, fileFilter: fileFilter, dest: 'uploads
 
 router.get('/new', isLoggedIn, petsCtrl.new);
 router.get('/', petsCtrl.index);
+router.get('/roulette', isLoggedIn, petsCtrl.roulette);
 router.get('/:id', isLoggedIn, petsCtrl.show);
 router.delete('/:id', isLoggedIn, petsCtrl.delete);
 router.get('/:id/edit', isLoggedIn, petsCtrl.edit);
@@ -30,6 +31,7 @@ router.put('/:id', isLoggedIn, upload.single('petImage'), petsCtrl.update);
 router.post('/', isLoggedIn, upload.single('petImage'), petsCtrl.create)
 router.get('/:id/images', petsCtrl.image)
 router.get('/:id/imagesSrc', petsCtrl.imageSrc)
+router.get('/:id/imagesPlaydate', petsCtrl.imagePlaydate)
 
 
 

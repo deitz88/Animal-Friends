@@ -20,7 +20,7 @@
           <td class='table-info'><a class ='button' href="/playdates/<%= t.id %> ">View</a></td>
           <td>
             <br>
-            <% if(t.owner == user.id) {%> 
+            <% if(user && t.owner == user.id) {%> 
             <section>
               <td class='info'>
               <form action="/playdates/<%=t.id%>?_method=DELETE" method="POST">
