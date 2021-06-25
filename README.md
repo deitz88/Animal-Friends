@@ -12,11 +12,11 @@ You can create a login and start exploring this app:
   <li>View other dogs profiles</li>
   <li>create a playdate</li>
   <li>add your pet to others playdate</li>
+  <li>Go to 'Roulette' and see a random pet card, view their pet profile, hit next!</li>
  
 
-
-<h1>Screenshots</h1>
-here are some of the example shots from the app:
+<h1>ERD:</h1>
+<img src="public/images/Erd.png" width="500">
 
 <h1>Screenshots</h1>
 here are some of the example shots from the app:
