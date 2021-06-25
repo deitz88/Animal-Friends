@@ -16,17 +16,27 @@ Create a login and start exploring this app:
 <h1>Screenshots</h1>
 here are some of the example shots from the app:
 
+<h1>Screenshots</h1>
+here are some of the example shots from the app:
+
 Home:
-![Screenshot](/images/Home.png)
+    <br>
+<img src="public/images/Home.png" width="200" height = "150">
+
 
 Profile:
-![Screenshot](/images/EditProfile.png)
+        <br>
+<img src="public/images/EditProfile.png" width="200" height = "150">
+
 
 Playdate Index:
-![Screenshot](/images/playdateIndex.png)
+      <br>
+    <img src="public/images/playdateIndex.png" width="200" height = "150">
 
 Add Pet:
-![Screenshot](/images/addPet.png)
+      <br>
+       <img src="public/images/addPet.png" width="200" height = "150">
+
 
 <h1>Technologies Used:</h1>
 <ul>
