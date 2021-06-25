@@ -718,7 +718,6 @@ body.loaded.fadein {
   }
   
   .nav-wrapper-home {  
-    /* This section calls the slideInFromLeft animation we defined above */
     animation: 2s ease-out 0s 1 slideInFromLeft;
   
   }
