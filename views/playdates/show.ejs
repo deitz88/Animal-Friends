@@ -11,9 +11,11 @@
     <div id='creatorEl'><strong>Playdate Creator:</strong> </div>
     <div id='creatorRend'><%= playdate.owner.name %></div><br>
     <div id='detailEl'><strong>Owners Pet:</strong> </div>
-    <% if(playdate.pet._id) %> 
+    <% if(!playdate.pet) {%> 
+      <p>No Pet Added</p>
+      <% } else { %> 
     <a class='button' href="/pets/<%= playdate.pet._id %>"><%=playdate.pet.name%></a><img class='owner-dog' src="../images/bone.svg" alt="">
-    <% } %> 
+        <% } %> 
   </section>
 
   <br><br><br>
@@ -29,6 +31,7 @@
     <div id='locationEl'><strong>Pets Attending:</strong> </div>
     <div id='locationrend'>
       <ul>
+
       <% playdate.petsOnPlaydate.forEach(function (t) { %>
         <li class='add-pet-list-playdate'>
           <a class='button' href="/pets/<%=t.id%>"><%= t.name %></a>
@@ -41,6 +44,7 @@
 
            <% } %> 
           <% }) %>
+ 
       </ul>
     </div><br>
   </section>

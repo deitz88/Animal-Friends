@@ -1,6 +1,9 @@
 const Owner = require('../models/owner');
 const Pet = require('../models/pet')
 const Playdate = require('../models/playdate');
+var path = require('path');
+const fs = require('fs')
+
 
 
 module.exports = {
@@ -12,7 +15,8 @@ module.exports = {
     delete: deletePet,
     update,
     image,
-    closeImg
+    imageSrc,
+  
   };
 
   function newPet(req, res){
@@ -29,6 +33,7 @@ function show(req, res) {
     .populate('pet')
     .exec(function(err, pet) { 
             res.render('pets/show', { title: 'Pet Detail', pet});
+            console.log(pet.petImage.path, '<-----')
           })
       };
 
@@ -48,24 +53,44 @@ function deletePet(req, res){
 }
 
 
+// function deletePet(req, res){
+//   const pet = Pet.findById(req.params.id);
+  
+//   (delPet.petImage._id).exec(function(err, pet) {
+//     Pet.findByIdAndRemove(pet, function(err, deletePet) {
+//         res.redirect('/show')
+//       })
+//     })
+// }
+
+
 async function update(req, res){
 
   try{
-    await Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    res.redirect('/show')
-    
-  } catch(err){
-    res.send(err)
+
+    if(!req.file){
+      await Pet.findByIdAndUpdate(req.params.id, req.body, {new: true}), 
+      Pet.petImage = 'noImage';
+      res.redirect('/show');
+
+      } else{
+        await Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
+          res.redirect('/show')
+      }
+  }catch(err){
+    // res.send(err)
   }
 }
+
 
   function create(req, res){
     console.log(req.body)
     if (!req.file) {
       const pet = new Pet(req.body);
       pet.owner = req.user._id;   
+      pet.petImage = 'noImage'
       pet.save(function(err) {
-        res.redirect(`/pets`);
+        res.redirect(`../show`);
     
       });
   
@@ -74,7 +99,7 @@ async function update(req, res){
     pet.owner = req.user._id;   
     pet.petImage = req.file.path
     pet.save(function(err) {
-            res.redirect(`/pets`);
+            res.redirect(`../show`);
   });
   }
 }
@@ -85,6 +110,8 @@ function image(req, res){
   })
 }
 
-function closeImg(req, res){
-  res.redirect(res.redirect('/show'))
+function imageSrc(req, res){
+  Pet.findById(req.params.id, function(err, pet) {
+    res.render('pets/imgShowSrc', {pet});
+  })
 }

@@ -297,8 +297,10 @@ font-size: small;
 
 
 footer{
-position: absolute;
-bottom:-200px;
+/* position: static; */
+top: 200vh;
+margin-top: 10px;
+margin-bottom: 10px;
 display: flex;
 justify-content: center;
 padding-top: 15px;
@@ -306,7 +308,7 @@ width:100%;
 height:5%;
 background:#6cf;
 background: linear-gradient(to right, transparent 0%, rosybrown 50%, transparent 100%);  
-margin-top: auto;
+margin-top: 100px;
 margin: auto;
 font-family: 'Merriweather', serif;
 font-style: italic;
@@ -344,7 +346,10 @@ align-items: right;
 display: flex;
 justify-content: center;
   }
-
+.pet-img-index{
+  height: 100px;
+  border-radius: 5px
+}
   #pet-edit-btn-div{
 position: absolute;
 margin: auto;
@@ -445,27 +450,6 @@ margin-left: 30px
   margin: auto;
 }
 
-
-
-
-
-  /* TABLE STYLES HERE */
-  /* .pet-show-table{
-table-layout: fixed;
-
-  }
-
-
-  .pet-show-hdr-show{
-    padding: 5px 20px;
-    text-align: left;
-    }
-  
-  .pet-show-info-show{
-    padding: 5px 20px;
-    text-align: left;
-    }  */
-
 .pet-table-hdr-show{
   padding: 5px 20px;
   text-align: left;
@@ -539,22 +523,25 @@ opacity: 1;
   .close-btn{
     border: solid black 1px;
     color: black;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    left: 450px;
-    margin: auto;
-    margin-top: 35px;
+     /* display: flex;
+    justify-content: center; */
+    /* align-items: center; */
+    /* right: 50; */
+    /* margin: auto; */
+    left: 50vw;
+    margin-top: 50px;
     background-color: white;
     border-radius: 50px;
     padding: 10px;
+    /* margin: auto; */
+    margin-left: 15%;
     /* padding-left: 10px; */
     padding-top: 3px;
     text-decoration: none;
     opacity: .6;
-    position: relative;
-    width: 10px;
-    /* height: fit-content; */
+    position: absolute;
+    /* width: inherit;*/
+    /* height: inherit;  */
 
   }
   .close-btn:hover{

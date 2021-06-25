@@ -64,9 +64,9 @@
         </label>
             <br><br>
           <%  console.log(pet.petImage) %>
-            <% if(pet.petImg == undefined){ %> 
+            <% if(pet.petImage == 'noImage'){ %> 
                     <div> 
-                       <label>Upload your pets picture!</label> <input type="file"   name="petImage" />
+                       <label>Upload your pets picture!</label> <input type="file" name="petImage"/>
                     </div>
                <% } else { %>
                 <div id='petImageEl'><strong>Image:</strong> </div>

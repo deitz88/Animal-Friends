@@ -15,7 +15,7 @@
  </div>
 
 
- <a href='/pets/<%=pet.id%>/images'>etst</a>
+ <!-- <a href='/pets/<%=pet.id%>/images'>etst</a> -->
 <div class='pet-show-cont'>
  <!-- <section id="show-page"> -->
     <div id='petLocationEl'><strong>Location:</strong> </div>
@@ -35,7 +35,12 @@
     <div id='petAboutEl'><strong>About:</strong> </div>
     <div id='petAboutRend'><%= pet.about %></div><br>
     <div id='petImageEl'><strong>Image:</strong> </div>
-    <div id='petImageRend'><img class='petImageRendImg' src="../<%= pet.petImage %>" alt="" ></div><br>
+    <div id='petImageRend'>
+       <a href='/pets/<%=pet.id%>/images'>
+          <img class='petImageRendImg' src="../<%= pet.petImage %>" alt="" >
+       </a>
+    </div>
+  <br>
 </div>
 
   <%- include('../partials/footer') %>
